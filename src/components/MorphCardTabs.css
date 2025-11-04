@@ -1,0 +1,182 @@
+.morph-container {
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  row-gap: 16px;
+  column-gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.morph-card {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  border-radius: 2rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: #546850;
+  stroke: #d9d9d9;
+  border: solid 1px #546850;
+  font-size: 12px;
+  transition: all 0.6s ease;
+  transform-origin: left center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.morph-card:hover {
+  color: #d9d9d9;
+  stroke: #d9d9d9;
+  background: #546850;
+}
+
+.morph-card.expanded {
+  font-size: 14px;
+  color: #d9d9d9;
+  stroke: #d9d9d9;
+  background: #546850;
+  border-radius: 2rem;
+  padding: 0.7rem 0rem 0.4rem 0.75rem;
+}
+
+.morph-card.expanded_M {
+  font-size: 14px;
+  color: #d9d9d9;
+  stroke: #d9d9d9;
+  background: #546850;
+  border-radius: 2rem;
+  padding: 0.5rem 0 0.5rem 0.8rem;
+}
+
+.morph-card h3 {
+  margin: 0;
+  padding-left: 0.4rem;
+  letter-spacing: 0.4rem;
+  font-weight: normal;
+}
+@media (max-width: 386px) {
+  .morph-card h3 {
+    padding-left: 0.1rem;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.morph-card.expanded h3 {
+  padding-left: 0;
+  font-weight: bolder;
+}
+
+.morph-content-wrapper {
+  overflow: hidden;
+}
+
+.morph-content {
+  display: inline-block;
+  white-space: normal;
+  padding-bottom: 0.2rem;
+}
+
+.morph-content img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.morph-content p {
+  padding-left: 1rem;
+  font-size: 14px;
+  letter-spacing: 0.35rem;
+  color: #ddd;
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 386px) {
+  .morph-content p {
+    letter-spacing: 0.1rem;
+  }
+}
+
+.morph-container_L {
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  row-gap: 16px;
+  column-gap: 16px;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: flex-start;
+}
+
+.morph-card_L {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  border-radius: 2rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: #546850;
+  stroke: #d9d9d9;
+  border: solid 1px #546850;
+  font-size: 12px;
+  transition: all 0.6s ease;
+  transform-origin: left center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.morph-card_L:hover {
+  color: #d9d9d9;
+  stroke: #d9d9d9;
+  background: #546850;
+}
+
+.morph-card_L.expanded {
+  color: #d9d9d9;
+  stroke: #d9d9d9;
+  background: #546850;
+  border-radius: 2rem;
+  padding-left: 1rem;
+}
+
+.morph-card_L.expanded_M {
+  color: #d9d9d9;
+  stroke: #d9d9d9;
+  background: #546850;
+  border-radius: 2rem;
+  padding-left: 0.7rem;
+}
+
+.morph-card_L h3 {
+  margin: 0;
+  padding-left: 0.4rem;
+  letter-spacing: 0.4rem;
+  font-weight: normal;
+}
+@media (max-width: 386px) {
+  .morph-card_L h3 {
+    padding-left: 0.1rem;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.morph-card_L.expanded h3 {
+  padding-left: 0;
+  font-weight: bolder;
+}
+
+.morph-content_L {
+  display: inline-block;
+  white-space: normal;
+  padding-bottom: 0.2rem;
+}
+
+.morph-content_L img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  object-fit: cover;
+}

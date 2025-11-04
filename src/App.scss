@@ -1,0 +1,2667 @@
+:root {
+  --main-color: #546850;
+  --sub-color: #d9d9d9;
+  --main-bgcolor: #d9d9d9;
+  --sub-bgcolor: #546850;
+}
+
+@font-face {
+  font-family: mainFont;
+  src: url("../public/fonts/Baloo-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: SubFont;
+  src: url("../public/fonts/BakbakOneRegular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: mainTextFont;
+  src: url("../public/fonts/Roboto-VariableFont_wdth\,wght.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$breakpoint-mi: 386px;
+$breakpoint-sm: 768px;
+$breakpoint-lg: 1025px;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==mi {
+    @media (min-width: $breakpoint-mi) {
+      @content;
+    }
+  } @else if $breakpoint==sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint==lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+}
+
+body {
+  background-color: var(--main-bgcolor);
+  font-family: mainTextFont;
+  // color: var(--main-color);
+  // color: aliceblue;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#header {
+  width: 100%;
+  height: 5.6rem;
+  @include respond(sm) {
+    height: 6rem;
+  }
+  @include respond(lg) {
+    height: 7.5rem;
+  }
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  .logo {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2.2rem;
+    padding-left: 1.3rem;
+    line-height: 1.2rem;
+    @include respond(sm) {
+      font-size: 2.6rem;
+      width: 30%;
+      padding-left: 1.2rem;
+      line-height: 1.6rem;
+    }
+    @include respond(lg) {
+      font-size: 2.95rem;
+      width: 30%;
+      padding-left: 1.4rem;
+      line-height: 1.8rem;
+    }
+    transition: all 0.2s ease;
+    &.mainLogo {
+      color: var(--main-color);
+    }
+    &.subLogo {
+      color: var(--sub-color);
+    }
+    font-family: MainFont;
+    span {
+      font-size: 1.5rem;
+      @include respond(sm) {
+        font-size: 1.76rem;
+      }
+      @include respond(lg) {
+        font-size: 2rem;
+      }
+    }
+    // border: solid 1px #fff;
+  }
+  .menu_mobile {
+    width: 30%;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+    // border: solid 1px #fff;
+    .MenuButton_Icon {
+      width: 3rem;
+      height: 3rem;
+      border: none;
+      background-color: transparent;
+      &.mainIcon {
+        stroke: #546850;
+      }
+      &.subIcon {
+        stroke: #d9d9d9;
+      }
+    }
+
+    @include respond(sm) {
+      display: none;
+    }
+    @include respond(lg) {
+      display: none;
+    }
+  }
+  .menu {
+    width: 100%;
+    position: fixed;
+    display: block;
+    // overflow: hidden;
+    top: 4.5rem;
+    transform-origin: top;
+    transform: translateY(-0.6rem);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    @include respond(sm) {
+      width: 70%;
+      top: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      pointer-events: auto;
+    }
+    @include respond(lg) {
+      width: 70%;
+      top: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      pointer-events: auto;
+    }
+    // border: solid 1px #fff;
+    .menuContainer {
+      background-color: #748670;
+      border-radius: 5rem;
+      font-size: 1.3rem;
+      width: 100%;
+      margin: 0;
+      padding: 0.6rem;
+      box-sizing: border-box;
+      box-shadow: 0 3px 6px rgba($color: #000, $alpha: 0.5);
+      @include respond(sm) {
+        background-color: transparent;
+        border-radius: none;
+        font-size: 1.2rem;
+        width: 28rem;
+        margin: 1rem;
+        box-shadow: none;
+      }
+      @include respond(lg) {
+        background-color: transparent;
+        border-radius: none;
+        font-size: 1.2rem;
+        width: 30rem;
+        margin: 2.5rem;
+        box-shadow: none;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // border: solid 1px #fff;
+      .MenuButton {
+        font-size: 85%;
+        padding: 0.6rem;
+        color: var(--sub-color);
+        border: solid 0 rgba($color: #d9d9d9, $alpha: 0);
+        @include respond(sm) {
+          font-size: 75%;
+          padding: 0.5rem 0.9rem;
+          color: var(--main-color);
+          border: solid 0 rgba($color: #546850, $alpha: 0);
+        }
+        @include respond(lg) {
+          font-size: 75%;
+          padding: 0.5rem 1rem;
+          color: var(--main-color);
+          border: solid 0 rgba($color: #546850, $alpha: 0);
+        }
+        letter-spacing: 0.1rem;
+        border-radius: 3rem;
+        background-color: transparent;
+
+        opacity: 80%;
+        cursor: pointer;
+        transition: all ease-in 0.1s;
+
+        &:hover {
+          font-size: 85%;
+          opacity: 100%;
+        }
+
+        &:focus {
+          font-size: 95%;
+          opacity: 80%;
+        }
+
+        &.active {
+          font-size: 95%;
+          border: solid 2px rgba($color: #d9d9d9, $alpha: 0.6);
+          backdrop-filter: blur(20px);
+          box-shadow: 0 3px 6px rgba($color: #000, $alpha: 0.5);
+          opacity: 100%;
+          @include respond(sm) {
+            border: solid 2px rgba($color: #546850, $alpha: 0.6);
+          }
+          @include respond(lg) {
+            border: solid 2px rgba($color: #546850, $alpha: 0.6);
+          }
+        }
+        &.mainMenu {
+          @include respond(sm) {
+            border-color: #546850;
+            color: var(--main-color);
+          }
+          @include respond(lg) {
+            border-color: #546850;
+            color: var(--main-color);
+          }
+        }
+        &.subMenu {
+          @include respond(sm) {
+            border-color: #d9d9d9;
+            color: var(--sub-color);
+          }
+          @include respond(lg) {
+            border-color: #d9d9d9;
+            color: var(--sub-color);
+          }
+        }
+      }
+    }
+  }
+}
+#home {
+  background-color: var(--main-bgcolor);
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  min-height: 750px;
+  max-height: 880px;
+  @include respond(sm) {
+    min-height: 800px;
+    max-height: 880px;
+  }
+  @include respond(lg) {
+    min-height: 800px;
+    max-height: 880px;
+  }
+  height: 100vh;
+  // border: solid 1px #fff;
+  .homeBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // background-image: url(./images/iPhone.png);
+    // background-image: url(./images/MacBookPro14.png);
+    // background-image: url(./images/MacBookPro14_.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    .container_m {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      --Pstart: 26;
+      //當start 比 end大時，要將clamp的 min 和 max 做交換
+      --Pend: 0;
+      --Wmin: 360;
+      --Wmax: 390;
+      left: clamp(
+        calc(var(--Pend) * 1px),
+        calc(
+          var(--Pstart) * 1px +
+            (
+              (var(--Pend) - var(--Pstart)) *
+                ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+            )
+        ),
+        calc(var(--Pstart) * 1px)
+      );
+      .wave2 {
+        position: absolute;
+        right: -9.6rem;
+        bottom: -3.6rem;
+        fill: #546850;
+        z-index: 9;
+        @include respond(sm) {
+          right: -9.6rem;
+          bottom: -3.6rem;
+        }
+        @include respond(lg) {
+          right: -4.2rem;
+          bottom: -0.6rem;
+        }
+      }
+      .leaf1 {
+        transform-origin: 0% 20%;
+        animation: leaf-sway-strong 9s infinite;
+        position: absolute;
+        left: -5.1rem;
+        bottom: -7.6rem;
+        @include respond(sm) {
+          width: 21rem;
+          left: -5.1rem;
+          bottom: -4.6rem;
+        }
+        @include respond(lg) {
+          left: -5.5rem;
+          bottom: -2.6rem;
+        }
+        z-index: 11;
+      }
+      .flower {
+        transform-origin: 30% 50%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        left: -2rem;
+        bottom: 8rem;
+        @include respond(sm) {
+          width: 11rem;
+          left: -2rem;
+          bottom: 10rem;
+        }
+        @include respond(lg) {
+          left: -4rem;
+          bottom: 13.5rem;
+        }
+        z-index: 10;
+      }
+      .selfie {
+        position: absolute;
+        right: -1rem;
+        bottom: -1.3rem;
+        width: 16rem;
+        @include respond(sm) {
+          right: 4.6rem;
+          bottom: -2.5rem;
+          width: 17rem;
+        }
+        @include respond(lg) {
+          --Pstart: 170;
+          --Pend: 312;
+          --Wmin: 1024;
+          --Wmax: 1512;
+          right: clamp(
+            calc(var(--Pstart) * 1px),
+            calc(
+              var(--Pstart) * 1px +
+                (
+                  (var(--Pend) - var(--Pstart)) *
+                    ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+                )
+            ),
+            calc(var(--Pend) * 1px)
+          );
+          bottom: -2rem;
+          width: 17rem;
+        }
+        z-index: 9;
+      }
+      .container_d {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        @include respond(lg) {
+          --Pstart: -140;
+          --Pend: 0;
+          --Wmin: 1024;
+          --Wmax: 1512;
+          right: clamp(
+            calc(var(--Pstart) * 1px),
+            calc(
+              var(--Pstart) * 1px +
+                (
+                  (var(--Pend) - var(--Pstart)) *
+                    ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+                )
+            ),
+            calc(var(--Pend) * 1px)
+          );
+        }
+
+        .flower_2 {
+          transform-origin: 50% 50%;
+          animation: leaf-sway-weak 7s infinite;
+          position: absolute;
+          display: none;
+          @include respond(sm) {
+            display: none;
+          }
+          @include respond(lg) {
+            display: block;
+            right: 45.6rem;
+            bottom: -2rem;
+          }
+          z-index: 8;
+        }
+        .leaf1_3 {
+          transform-origin: 10% 100%;
+          animation: leaf-sway-weak 9s infinite;
+          position: absolute;
+          display: none;
+          @include respond(sm) {
+            display: none;
+          }
+          @include respond(lg) {
+            display: block;
+            right: 32.2rem;
+            bottom: -6.2rem;
+          }
+          z-index: 7;
+        }
+        .leaf1_4 {
+          transform-origin: 100% 90%;
+          animation: leaf-sway-strong 9s infinite;
+          position: absolute;
+          display: none;
+          @include respond(sm) {
+            display: none;
+          }
+          @include respond(lg) {
+            display: block;
+            right: 2.6rem;
+            bottom: -3rem;
+          }
+          z-index: 8;
+        }
+        .flower_3 {
+          transform-origin: 80% 50%;
+          animation: leaf-sway-weak 7s infinite;
+          position: absolute;
+          @include respond(sm) {
+            display: none;
+          }
+          @include respond(lg) {
+            display: block;
+            right: 2.8rem;
+            bottom: 10.8rem;
+          }
+          z-index: 7;
+        }
+      }
+
+      .wave1 {
+        position: absolute;
+        right: -2.3rem;
+        bottom: -2.3rem;
+        @include respond(sm) {
+          right: -2.3rem;
+          bottom: -2.3rem;
+        }
+        @include respond(lg) {
+          right: -1.2rem;
+          bottom: -2.7rem;
+        }
+        fill: #546850;
+        z-index: 6;
+      }
+      .wave1_ {
+        position: absolute;
+        right: -1.5rem;
+        bottom: 0rem;
+        @include respond(sm) {
+          right: -1.5rem;
+          bottom: 0rem;
+        }
+        @include respond(lg) {
+          right: -2rem;
+          bottom: -0.3rem;
+        }
+        fill: #748670;
+        z-index: 5;
+      }
+      .leaf1_ {
+        transform-origin: 60% 100%;
+        animation: leaf-sway-weak 9s infinite;
+        position: absolute;
+        right: 11.6rem;
+        bottom: 9.2rem;
+        @include respond(sm) {
+          width: 12rem;
+          right: 19rem;
+          bottom: 4.2rem;
+        }
+        @include respond(lg) {
+          right: 35.6rem;
+          bottom: 6rem;
+        }
+        z-index: 4;
+      }
+      .leaf2 {
+        transform-origin: 60% 100%;
+        animation: leaf-sway-weak 9s infinite;
+        position: absolute;
+        right: 6rem;
+        bottom: 12rem;
+        @include respond(sm) {
+          width: 18rem;
+          right: 13em;
+          bottom: 7.5rem;
+        }
+        @include respond(lg) {
+          right: 27.2rem;
+          bottom: 8.8rem;
+        }
+        z-index: 3;
+      }
+      .leaf1_2 {
+        transform-origin: 100% 20%;
+        animation: leaf-sway-strong 9s infinite;
+        position: absolute;
+        right: -3.8rem;
+        bottom: 30.8rem;
+        @include respond(sm) {
+          width: 14rem;
+          right: -3.8rem;
+          bottom: 30.8rem;
+        }
+        @include respond(lg) {
+          right: -4rem;
+          bottom: 29.3rem;
+        }
+        z-index: 4;
+      }
+      .flower_ {
+        transform-origin: 80% 50%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        right: -1.7rem;
+        bottom: 40.3rem;
+        @include respond(sm) {
+          width: 6.5rem;
+          right: -1.7rem;
+          bottom: 40.3rem;
+        }
+        @include respond(lg) {
+          right: -1.5rem;
+          bottom: 38rem;
+        }
+        z-index: 3;
+      }
+      .leaf2_ {
+        transform-origin: 0% 60%;
+        animation: leaf-sway-weak 9s infinite;
+        position: absolute;
+        left: -7.6rem;
+        bottom: 35.6rem;
+        @include respond(sm) {
+          width: 20rem;
+          left: -5.6rem;
+          bottom: 33rem;
+        }
+        @include respond(lg) {
+          left: -5.5rem;
+          bottom: 25rem;
+        }
+        z-index: 7;
+      }
+    }
+  }
+  .homeContainer {
+    position: absolute;
+    // border: solid 1px #f82f2f;
+    z-index: 7;
+    .titleContainer {
+      position: absolute;
+      --Pstart: 22;
+      --Pend: 136;
+      --Wmin: 390;
+      --Wmax: 768;
+      left: clamp(
+        calc(var(--Pstart) * 1px),
+        calc(
+          var(--Pstart) * 1px +
+            (
+              (var(--Pend) - var(--Pstart)) *
+                ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+            )
+        ),
+        calc(var(--Pend) * 1px)
+      );
+      --PstartT: 140;
+      --PendT: 220;
+      --WminT: 390;
+      --WmaxT: 768;
+
+      --AddPstartT: 0;
+      --AddPendT: 52;
+      --HminT: 750;
+      --HmaxT: 880;
+      --Wprogress: clamp(
+        calc(var(--PstartT) * 1px),
+        calc(
+          var(--PstartT) * 1px +
+            (
+              (var(--PendT) - var(--PstartT)) *
+                ((100vw - var(--WminT) * 1px) / (var(--WmaxT) - var(--WminT)))
+            )
+        ),
+        calc(var(--PendT) * 1px)
+      );
+      --Hprogress: clamp(
+        calc(var(--AddPstartT) * 1px),
+        calc(
+          var(--AddPstartT) * 1px +
+            (
+              (var(--AddPendT) - var(--AddPstartT)) *
+                ((100vh - var(--HminT) * 1px) / (var(--HmaxT) - var(--HminT)))
+            )
+        ),
+        calc(var(--AddPendT) * 1px)
+      );
+      top: calc(var(--Wprogress) + var(--Hprogress));
+      @include respond(sm) {
+        --Pstart: 120;
+        --Pend: 180;
+        --Wmin: 768;
+        --Wmax: 1024;
+        left: clamp(
+          calc(var(--Pstart) * 1px),
+          calc(
+            var(--Pstart) * 1px +
+              (
+                (var(--Pend) - var(--Pstart)) *
+                  ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+              )
+          ),
+          calc(var(--Pend) * 1px)
+        );
+        --PstartT: 220;
+        --PendT: 260;
+        --WminT: 768;
+        --WmaxT: 1024;
+
+        --AddPstartT: 0;
+        --AddPendT: 20;
+        --HminT: 800;
+        --HmaxT: 880;
+        --Wprogress: clamp(
+          calc(var(--PstartT) * 1px),
+          calc(
+            var(--PstartT) * 1px +
+              (
+                (var(--PendT) - var(--PstartT)) *
+                  ((100vw - var(--WminT) * 1px) / (var(--WmaxT) - var(--WminT)))
+              )
+          ),
+          calc(var(--PendT) * 1px)
+        );
+        --Hprogress: clamp(
+          calc(var(--AddPstartT) * 1px),
+          calc(
+            var(--AddPstartT) * 1px +
+              (
+                (var(--AddPendT) - var(--AddPstartT)) *
+                  ((100vh - var(--HminT) * 1px) / (var(--HmaxT) - var(--HminT)))
+              )
+          ),
+          calc(var(--AddPendT) * 1px)
+        );
+        top: calc(var(--Wprogress) + var(--Hprogress));
+      }
+      @include respond(lg) {
+        --Pstart: 250;
+        --Pend: 516;
+        --Wmin: 1024;
+        --Wmax: 1920;
+        left: clamp(
+          calc(var(--Pstart) * 1px),
+          calc(
+            var(--Pstart) * 1px +
+              (
+                (var(--Pend) - var(--Pstart)) *
+                  ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+              )
+          ),
+          calc(var(--Pend) * 1px)
+        );
+        --PstartT: 180;
+        --PendT: 250;
+        --WminT: 1024;
+        --WmaxT: 1920;
+
+        --AddPstartT: 0;
+        --AddPendT: 40;
+        --HminT: 800;
+        --HmaxT: 880;
+        --Wprogress: clamp(
+          calc(var(--PstartT) * 1px),
+          calc(
+            var(--PstartT) * 1px +
+              (
+                (var(--PendT) - var(--PstartT)) *
+                  ((100vw - var(--WminT) * 1px) / (var(--WmaxT) - var(--WminT)))
+              )
+          ),
+          calc(var(--PendT) * 1px)
+        );
+        --Hprogress: clamp(
+          calc(var(--AddPstartT) * 1px),
+          calc(
+            var(--AddPstartT) * 1px +
+              (
+                (var(--AddPendT) - var(--AddPstartT)) *
+                  ((100vh - var(--HminT) * 1px) / (var(--HmaxT) - var(--HminT)))
+              )
+          ),
+          calc(var(--AddPendT) * 1px)
+        );
+        top: calc(var(--Wprogress) + var(--Hprogress));
+      }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // border: solid 1px #ff9f06;
+      .title {
+        font-family: "SubFont";
+        color: var(--main-color);
+        --Pstart: 150;
+        --Pend: 196;
+        --Wmin: 390;
+        --Wmax: 768;
+        font-size: clamp(
+          calc(var(--Pstart) * 1px),
+          calc(
+            var(--Pstart) * 1px +
+              (
+                (var(--Pend) - var(--Pstart)) *
+                  ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+              )
+          ),
+          calc(var(--Pend) * 1px)
+        );
+        --PstartLH: 100;
+        --PendLH: 136;
+        --WminLH: 390;
+        --WmaxLH: 768;
+        line-height: clamp(
+          calc(var(--PstartLH) * 1px),
+          calc(
+            var(--PstartLH) * 1px +
+              (
+                (var(--PendLH) - var(--PstartLH)) *
+                  (
+                    (100vw - var(--WminLH) * 1px) /
+                      (var(--WmaxLH) - var(--WminLH))
+                  )
+              )
+          ),
+          calc(var(--PendLH) * 1px)
+        );
+        @include respond(sm) {
+          font-size: 13rem;
+          line-height: 10rem;
+        }
+        @include respond(lg) {
+          --Pstart: 220;
+          --Pend: 260;
+          --Wmin: 1024;
+          --Wmax: 1512;
+          font-size: clamp(
+            calc(var(--Pstart) * 1px),
+            calc(
+              var(--Pstart) * 1px +
+                (
+                  (var(--Pend) - var(--Pstart)) *
+                    ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+                )
+            ),
+            calc(var(--Pend) * 1px)
+          );
+          --PstartLH: 140;
+          --PendLH: 160;
+          --WminLH: 1024;
+          --WmaxLH: 1512;
+          line-height: clamp(
+            calc(var(--PstartLH) * 1px),
+            calc(
+              var(--PstartLH) * 1px +
+                (
+                  (var(--PendLH) - var(--PstartLH)) *
+                    (
+                      (100vw - var(--WminLH) * 1px) /
+                        (var(--WmaxLH) - var(--WminLH))
+                    )
+                )
+            ),
+            calc(var(--PendLH) * 1px)
+          );
+        }
+        // border: solid 1px #fff;
+      }
+      .subtitle {
+        font-family: SubFont;
+        color: var(--main-color);
+        --Pstart: 19;
+        --Pend: 20;
+        --Wmin: 390;
+        --Wmax: 768;
+        font-size: clamp(
+          calc(var(--Pstart) * 1px),
+          calc(
+            var(--Pstart) * 1px +
+              (
+                (var(--Pend) - var(--Pstart)) *
+                  ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+              )
+          ),
+          calc(var(--Pend) * 1px)
+        );
+        --PstartLS: 6;
+        --PendLS: 15;
+        --WminLS: 390;
+        --WmaxLS: 768;
+        letter-spacing: clamp(
+          calc(var(--PstartLS) * 1px),
+          calc(
+            var(--PstartLS) * 1px +
+              (
+                (var(--PendLS) - var(--PstartLS)) *
+                  (
+                    (100vw - var(--WminLS) * 1px) /
+                      (var(--WmaxLS) - var(--WminLS))
+                  )
+              )
+          ),
+          calc(var(--PendLS) * 1px)
+        );
+        margin: 0 0 0 0.2rem;
+        @include respond(sm) {
+          font-size: 1.5rem;
+          letter-spacing: 0.8rem;
+        }
+        @include respond(lg) {
+          font-family: SubFont;
+          color: var(--main-color);
+          --Pstart: 26;
+          --Pend: 27;
+          --Wmin: 1024;
+          --Wmax: 1512;
+          font-size: clamp(
+            calc(var(--Pstart) * 1px),
+            calc(
+              var(--Pstart) * 1px +
+                (
+                  (var(--Pend) - var(--Pstart)) *
+                    ((100vw - var(--Wmin) * 1px) / (var(--Wmax) - var(--Wmin)))
+                )
+            ),
+            calc(var(--Pend) * 1px)
+          );
+          --PstartLS: 6;
+          --PendLS: 15;
+          --WminLS: 1024;
+          --WmaxLS: 1512;
+          letter-spacing: clamp(
+            calc(var(--PstartLS) * 1px),
+            calc(
+              var(--PstartLS) * 1px +
+                (
+                  (var(--PendLS) - var(--PstartLS)) *
+                    (
+                      (100vw - var(--WminLS) * 1px) /
+                        (var(--WmaxLS) - var(--WminLS))
+                    )
+                )
+            ),
+            calc(var(--PendLS) * 1px)
+          );
+        }
+        span {
+          font-size: 2.5rem;
+          --PstartLS: 1.6;
+          --PendLS: 7;
+          --WminLS: 390;
+          --WmaxLS: 768;
+          letter-spacing: clamp(
+            calc(var(--PstartLS) * 1px),
+            calc(
+              var(--PstartLS) * 1px +
+                (
+                  (var(--PendLS) - var(--PstartLS)) *
+                    (
+                      (100vw - var(--WminLS) * 1px) /
+                        (var(--WmaxLS) - var(--WminLS))
+                    )
+                )
+            ),
+            calc(var(--PendLS) * 1px)
+          );
+          vertical-align: -0.4rem;
+          margin: 0 0.3rem 0 0;
+          @include respond(sm) {
+            font-size: 2.5rem;
+            letter-spacing: 0.5rem;
+          }
+          @include respond(lg) {
+            --Pstart: 66;
+            --Pend: 70;
+            --Wmin: 1024;
+            --Wmax: 1512;
+            font-size: clamp(
+              calc(var(--Pstart) * 1px),
+              calc(
+                var(--Pstart) * 1px +
+                  (
+                    (var(--Pend) - var(--Pstart)) *
+                      (
+                        (100vw - var(--Wmin) * 1px) /
+                          (var(--Wmax) - var(--Wmin))
+                      )
+                  )
+              ),
+              calc(var(--Pend) * 1px)
+            );
+            --PstartLS: 6;
+            --PendLS: 8;
+            --WminLS: 768;
+            --WmaxLS: 1512;
+            letter-spacing: clamp(
+              calc(var(--PstartLS) * 1px),
+              calc(
+                var(--PstartLS) * 1px +
+                  (
+                    (var(--PendLS) - var(--PstartLS)) *
+                      (
+                        (100vw - var(--WminLS) * 1px) /
+                          (var(--WmaxLS) - var(--WminLS))
+                      )
+                  )
+              ),
+              calc(var(--PendLS) * 1px)
+            );
+            vertical-align: -0.9rem;
+            margin: 0 0.5rem 0 0;
+          }
+        }
+        // border: solid 1px #fff;
+      }
+    }
+  }
+}
+
+#about {
+  background-color: var(--sub-bgcolor);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  min-height: 750px;
+  max-height: 932px;
+  @include respond(sm) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  @include respond(lg) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  .homeBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    .container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .leaf1 {
+        transform-origin: 80% 100%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        left: -2.3rem;
+        bottom: -3.7rem;
+        @include respond(sm) {
+          left: -2.3rem;
+          bottom: -3.7rem;
+        }
+        @include respond(lg) {
+          left: -2.3rem;
+          bottom: -3.7rem;
+        }
+        z-index: 6;
+      }
+      .leaf1_ {
+        transform-origin: 0% 80%;
+        animation: leaf-sway-weak 8s infinite;
+        position: absolute;
+        right: -3.5rem;
+        bottom: -5.3rem;
+        @include respond(sm) {
+          right: -3.5rem;
+          bottom: -5.3rem;
+        }
+        @include respond(lg) {
+          right: -3.5rem;
+          bottom: -5.3rem;
+        }
+        z-index: 5;
+      }
+      .flower {
+        transform-origin: 50% 60%;
+        animation: leaf-sway-weak 6s infinite;
+        position: absolute;
+        left: 4rem;
+        bottom: -2.6rem;
+        @include respond(sm) {
+          left: 4rem;
+          bottom: -2.6rem;
+        }
+        @include respond(lg) {
+          left: 4rem;
+          bottom: -2.6rem;
+        }
+        z-index: 7;
+      }
+    }
+  }
+  .aboutContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    // background-image: url(./images/iPhone_2.png);
+    .context {
+      font-size: 18px;
+      @include respond(lg) {
+        font-size: 20px;
+      }
+      line-height: 56px;
+      text-align: center;
+      letter-spacing: 0.33em;
+      color: #d9d9d9;
+      margin-bottom: 4rem;
+    }
+  }
+
+  // border: solid 1px #fff;
+}
+
+#skill {
+  background-color: var(--main-bgcolor);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  min-height: 750px;
+  max-height: 932px;
+  @include respond(sm) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  @include respond(lg) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  .homeBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // background-image: url(./images/iPhone_3.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    .container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .leaf1 {
+        transform-origin: 0% 80%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        left: -3.3rem;
+        bottom: -4.8rem;
+        @include respond(sm) {
+          left: -3.3rem;
+          bottom: -4.8rem;
+        }
+        @include respond(lg) {
+          left: -3.3rem;
+          bottom: -4.8rem;
+        }
+        z-index: 6;
+      }
+      .leaf1_ {
+        transform-origin: 100% 60%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        right: -4.6rem;
+        top: 10.5rem;
+        @include respond(sm) {
+          right: -4.6rem;
+          top: 10.5rem;
+        }
+        @include respond(lg) {
+          right: -4.6rem;
+          top: 10.5rem;
+        }
+        z-index: 5;
+      }
+    }
+  }
+  .skillContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    // background-image: url(./images/iPhone_2.png);
+    .itemContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      transform: translateY(1rem);
+      justify-content: center;
+      @include respond(sm) {
+        grid-auto-flow: column;
+        grid-template-rows: repeat(3, auto);
+        justify-content: center;
+      }
+
+      @include respond(lg) {
+        grid-auto-flow: column;
+        grid-template-rows: repeat(3, auto);
+        justify-content: center;
+      }
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 17rem;
+        min-height: 6rem;
+        font-family: mainFont;
+        color: var(--main-color);
+        @include respond(sm) {
+          width: 21rem;
+        }
+        .icon {
+          // background-color: rgb(255, 213, 0);
+          width: 20%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 0.9rem;
+          @include respond(lg) {
+            font-size: 1rem;
+          }
+          line-height: 1.5rem;
+          letter-spacing: 0.16rem;
+        }
+        .content {
+          // background-color: aqua;
+          width: 80%;
+          padding-left: 1rem;
+          padding-bottom: 2rem;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          font-size: 1.2rem;
+          letter-spacing: 0.1rem;
+          @include respond(lg) {
+            font-size: 1.3rem;
+          }
+
+          .outlineText {
+            padding: 6px;
+            margin: 0 0.2rem;
+            line-height: 1.35rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 3px var(--main-color);
+            border-radius: 0.3rem;
+            font-size: 0.9rem;
+            @include respond(lg) {
+              font-size: 1rem;
+            }
+          }
+          .outlineText_ {
+            width: 98%;
+            padding: 6px 0;
+            margin: 0.3rem 0rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 3px var(--main-color);
+            border-radius: 0.3rem;
+            font-size: 0.9rem;
+            @include respond(lg) {
+              font-size: 1rem;
+            }
+            letter-spacing: 0.3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+#experience {
+  background-color: var(--sub-bgcolor);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  min-height: 750px;
+  max-height: 932px;
+  @include respond(sm) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  @include respond(lg) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  .homeBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // background-image: url(./images/iPhone_4.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    .container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .leaf2 {
+        transform-origin: 0% 80%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        left: -3rem;
+        top: 6.7rem;
+        @include respond(sm) {
+          left: -3rem;
+          top: 6.7rem;
+        }
+        @include respond(lg) {
+          left: -3rem;
+          top: 6.7rem;
+        }
+        z-index: 5;
+      }
+      .leaf2_ {
+        transform-origin: 100% 80%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        right: -2.6rem;
+        bottom: -3.6rem;
+        @include respond(sm) {
+          right: -2.6rem;
+          bottom: -3.6rem;
+        }
+        @include respond(lg) {
+          right: -2.6rem;
+          bottom: -3.6rem;
+        }
+        z-index: 6;
+      }
+    }
+  }
+  .experienceContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 7;
+    .line {
+      background-color: var(--sub-color);
+      width: 1px;
+      height: 30rem;
+      transform: translate(0.6rem, 2.2rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 1.5rem 0 2.5rem 0;
+      box-sizing: border-box;
+      @include respond(lg) {
+        height: 60vw;
+        transform: rotate(-90deg);
+      }
+      .dot {
+        position: relative;
+        background-color: var(--sub-color);
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        &:nth-child(odd) {
+          .content {
+            position: absolute;
+            right: 0.8rem;
+            top: -1rem;
+            width: 12rem;
+            // background-color: red;
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            color: var(--sub-color);
+            letter-spacing: 0.4rem;
+            @include respond(lg) {
+              right: -2.5rem;
+              top: 0rem;
+              transform: rotate(90deg);
+              text-align: left;
+            }
+            .title {
+              font-size: 0.9rem;
+              @include respond(lg) {
+                font-size: 1.1rem;
+              }
+            }
+            .subtitle {
+              font-size: 0.8rem;
+              opacity: 80%;
+              @include respond(lg) {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+        &:nth-child(even) {
+          .content {
+            position: absolute;
+            left: 1.2rem;
+            top: -1rem;
+            width: 11rem;
+            // background-color: red;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            color: var(--sub-color);
+            letter-spacing: 0.4rem;
+            @include respond(lg) {
+              left: -2rem;
+              top: -2rem;
+              transform: rotate(90deg);
+              text-align: right;
+            }
+            .title {
+              font-size: 0.9rem;
+              @include respond(lg) {
+                font-size: 1.1rem;
+              }
+            }
+            .subtitle {
+              font-size: 0.8rem;
+              opacity: 80%;
+              @include respond(lg) {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#works {
+  background-color: var(--main-bgcolor);
+  width: 100%;
+  height: 100vh;
+  min-height: 777px;
+  max-height: 932px;
+  @include respond(sm) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  @include respond(lg) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  .worksContainer {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    // background-image: url(./images/MacBookPro14_u.png);
+    // background-image: url(./images/MacBookPro14_t_4.png);
+    // background-image: url(./images/iPhone_u.png);
+    // background-image: url(./images/iPhone_t_4.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      @include respond(sm) {
+        width: 85%;
+        height: 80%;
+        flex-direction: row;
+        overflow: unset;
+      }
+      @include respond(lg) {
+        width: 73%;
+        height: 80%;
+        flex-direction: row;
+        overflow: unset;
+      }
+      // border: dashed 1px red;
+      .tabContainer_ {
+        width: 100%;
+        height: 19%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 6rem;
+        box-sizing: border-box;
+        @include respond(sm) {
+          width: 40%;
+          height: auto;
+          padding-top: 11.5rem;
+        }
+        @include respond(lg) {
+          width: 30%;
+          height: auto;
+          padding-top: 11.5rem;
+        }
+        .title {
+          width: 100%;
+          text-align: center;
+          @include respond(sm) {
+            width: 100%;
+            height: 7.7rem;
+            text-align: start;
+          }
+          span {
+            font-size: 24px;
+            letter-spacing: 0.6rem;
+          }
+          p {
+            margin: 0;
+            letter-spacing: 0.03rem;
+          }
+        }
+      }
+      .contentContainer_ {
+        width: 100%;
+        height: 67%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 12px;
+        box-sizing: border-box;
+        @include respond(sm) {
+          width: 60%;
+          height: auto;
+          padding: 0;
+          padding-left: 1rem;
+        }
+        @include respond(lg) {
+          width: 70%;
+          height: auto;
+          padding: 0;
+          padding-left: 2rem;
+        }
+        // border: dashed 1px red;
+        .content_motivation {
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          margin-top: 0rem;
+          height: 515px;
+          flex-direction: column-reverse;
+          @include respond(sm) {
+            margin-top: 5.5rem;
+            height: 500px;
+            flex-direction: column-reverse;
+          }
+          @include respond(lg) {
+            margin-top: 5.5rem;
+            height: 430px;
+            flex-direction: row;
+          }
+          .context_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 65%;
+            background-color: #546850;
+            border-radius: 24px;
+            padding: 1.2rem;
+            box-sizing: border-box;
+            @include respond(lg) {
+              width: 36%;
+              height: 100%;
+              min-width: 245px;
+              flex-direction: row;
+            }
+            .context {
+              padding-left: 5px;
+              font-size: 16px;
+              letter-spacing: 0.2rem;
+              line-height: 1.4rem;
+              text-align: justify;
+              color: #d9d9d9;
+            }
+            @include respond(sm) {
+              letter-spacing: 0.4rem;
+            }
+          }
+          .framer {
+            position: relative;
+            width: 100%;
+            height: 35%;
+            border-radius: 24px;
+            overflow: hidden;
+            @include respond(lg) {
+              width: 64%;
+              height: 100%;
+              flex-direction: row;
+            }
+            // aspect-ratio: 3 / 2;
+            picture img {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              object-fit: cover;
+            }
+          }
+        }
+        .content_research {
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          margin-top: 0rem;
+          height: 515px;
+          flex-direction: column;
+          @include respond(sm) {
+            margin-top: 5.5rem;
+            height: 500px;
+            flex-direction: column;
+          }
+          @include respond(lg) {
+            margin-top: 5.5rem;
+            height: 430px;
+            flex-direction: row;
+          }
+          .context_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 50%;
+            background-color: #546850;
+            border-radius: 24px;
+            padding: 1.2rem;
+            box-sizing: border-box;
+            @include respond(lg) {
+              width: 34%;
+              height: 100%;
+              min-width: 210px;
+              flex-direction: row;
+            }
+            .context {
+              padding-left: 5px;
+              font-size: 16px;
+              letter-spacing: 0.2rem;
+              line-height: 1.4rem;
+              text-align: justify;
+              color: #d9d9d9;
+              @include respond(sm) {
+                letter-spacing: 0.4rem;
+              }
+              b {
+                letter-spacing: 0.2rem;
+              }
+            }
+          }
+          .framers {
+            display: flex;
+            height: 50%;
+            width: 100%;
+            gap: 12px;
+            @include respond(lg) {
+              width: 66%;
+              height: 100%;
+              gap: 12px;
+            }
+            .framer {
+              position: relative;
+              width: 100%;
+              border-radius: 24px;
+              overflow: hidden;
+              @include respond(lg) {
+                width: 50%;
+                min-width: 190px;
+                height: 100%;
+                flex-direction: row;
+              }
+              // aspect-ratio: 3 / 2;
+              picture img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+              }
+            }
+          }
+        }
+        .content_painPoints {
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          margin-top: 0rem;
+          height: 515px;
+          flex-direction: column;
+          @include respond(sm) {
+            margin-top: 5.5rem;
+            gap: 12px;
+            height: auto;
+          }
+          @include respond(lg) {
+            margin-top: 7rem;
+            gap: 40px;
+            height: auto;
+          }
+          .itemContainer {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 180px;
+            gap: 18px;
+            align-items: flex-start;
+            @include respond(sm) {
+              height: 190px;
+              align-items: flex-start;
+            }
+            @include respond(lg) {
+              height: 100px;
+              gap: 12px;
+              align-items: center;
+            }
+
+            .title {
+              color: #546850;
+              font-size: 36px;
+              transform: translateY(0.8rem);
+              @include respond(lg) {
+                transform: translateY(0);
+                font-size: 64px;
+              }
+              span {
+                font-size: 48px;
+                @include respond(lg) {
+                  font-size: 96px;
+                }
+              }
+            }
+            .context_container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              background-color: #546850;
+              border-radius: 24px;
+              padding: 24px;
+              box-sizing: border-box;
+              z-index: 5;
+              @include respond(lg) {
+                width: 83%;
+                height: 100%;
+                min-width: 210px;
+                flex-direction: row;
+              }
+              .context {
+                padding-left: 5px;
+                font-size: 16px;
+                letter-spacing: 0.2rem;
+                line-height: 1.4rem;
+                text-align: justify;
+                color: #d9d9d9;
+                @include respond(sm) {
+                  letter-spacing: 0.4rem;
+                }
+                b {
+                  letter-spacing: 0.2rem;
+                }
+                span {
+                  font-size: 20px;
+                  color: #fff;
+                  @include respond(lg) {
+                    font-size: 22px;
+                  }
+                }
+              }
+            }
+            picture {
+              width: 100%;
+              height: 100%;
+              display: block;
+              position: absolute;
+              pointer-events: none;
+            }
+            .leaf1 {
+              display: block;
+              transform-origin: 80% 80%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 4;
+              left: -0.9rem;
+              bottom: -0.7rem;
+              @include respond(lg) {
+                transform-origin: 10% 80%;
+                z-index: 4;
+                left: unset;
+                bottom: unset;
+                right: -4rem;
+                top: -7.5rem;
+              }
+            }
+            .flower {
+              transform-origin: 50% 50%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 6;
+              left: 1.7rem;
+              bottom: 4rem;
+              @include respond(lg) {
+                z-index: 6;
+                left: unset;
+                bottom: unset;
+                right: -3.2rem;
+                top: 0.5rem;
+              }
+            }
+            .leaf1_ {
+              transform-origin: 80% 10%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 3;
+              left: -0.2rem;
+              bottom: -2em;
+              @include respond(lg) {
+                left: 1.5rem;
+                bottom: -12rem;
+              }
+            }
+            .flower_ {
+              transform-origin: 50% 50%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 6;
+              left: 2.9rem;
+              bottom: -2.5rem;
+              @include respond(lg) {
+                z-index: 6;
+                left: 11.5rem;
+                bottom: -5rem;
+              }
+            }
+            .leaf1_e {
+              transform-origin: 10% 20%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 4;
+              right: -1.2rem;
+              bottom: -3.7rem;
+            }
+          }
+        }
+        .content_solutions {
+          width: 100%;
+          display: flex;
+          gap: 12px;
+          margin-top: 0rem;
+          height: 515px;
+          flex-direction: column;
+          @include respond(sm) {
+            margin-top: 5.5rem;
+            gap: 12px;
+            height: auto;
+          }
+          @include respond(lg) {
+            margin-top: 7rem;
+            gap: 40px;
+            height: auto;
+          }
+          .itemContainer {
+            position: relative;
+            display: flex;
+            width: 100%;
+            height: 180px;
+            gap: 18px;
+            align-items: flex-start;
+            @include respond(sm) {
+              height: 190px;
+              align-items: flex-start;
+            }
+            @include respond(lg) {
+              height: 100px;
+              gap: 12px;
+              align-items: center;
+            }
+
+            .title {
+              color: #546850;
+              font-size: 36px;
+              transform: translateY(0.8rem);
+              @include respond(lg) {
+                transform: translateY(0);
+                font-size: 64px;
+              }
+              span {
+                font-size: 48px;
+                @include respond(lg) {
+                  font-size: 96px;
+                }
+              }
+            }
+            .context_container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              background-color: #546850;
+              border-radius: 24px;
+              padding: 24px;
+              box-sizing: border-box;
+              z-index: 5;
+              @include respond(lg) {
+                width: 83%;
+                height: 100%;
+                min-width: 210px;
+                flex-direction: row;
+              }
+              .context {
+                padding-left: 5px;
+                font-size: 16px;
+                letter-spacing: 0.2rem;
+                line-height: 1.4rem;
+                text-align: justify;
+                color: #d9d9d9;
+                @include respond(sm) {
+                  letter-spacing: 0.4rem;
+                }
+                b {
+                  letter-spacing: 0.2rem;
+                }
+                span {
+                  font-size: 20px;
+                  color: #fff;
+                  @include respond(lg) {
+                    font-size: 22px;
+                  }
+                }
+              }
+            }
+            picture {
+              width: 100%;
+              height: 100%;
+              display: block;
+              position: absolute;
+              pointer-events: none;
+            }
+            .leaf1 {
+              display: block;
+              transform-origin: 10% 80%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 4;
+              right: -1.3rem;
+              bottom: -1.1rem;
+              @include respond(lg) {
+                transform-origin: 80% 90%;
+                z-index: 4;
+                left: 3.5rem;
+                bottom: unset;
+                right: unset;
+                top: -10rem;
+              }
+            }
+            .flower {
+              transform-origin: 50% 50%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 6;
+              right: 2rem;
+              bottom: -1.5rem;
+              @include respond(lg) {
+                z-index: 6;
+                left: 3.5rem;
+                bottom: unset;
+                right: unset;
+                top: -3rem;
+              }
+            }
+            .leaf1_ {
+              transform-origin: 10% 20%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 3;
+              right: -1rem;
+              bottom: -2.8em;
+              @include respond(lg) {
+                z-index: 3;
+                top: unset;
+                right: -6.5rem;
+                left: unset;
+                bottom: -9.5rem;
+              }
+            }
+            .flower_ {
+              transform-origin: 50% 50%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 6;
+              right: 1rem;
+              bottom: 1.7em;
+              @include respond(lg) {
+                z-index: 6;
+                top: unset;
+                right: 3.5rem;
+                left: unset;
+                bottom: -5.3rem;
+              }
+            }
+            .leaf1_e {
+              transform-origin: 90% 70%;
+              animation: leaf-sway-weak 7s infinite;
+              position: absolute;
+              z-index: 4;
+              left: -0.5rem;
+              bottom: -4.7rem;
+            }
+          }
+        }
+        .defaultCover_1 {
+          width: 100%;
+          border-radius: 24px;
+          @include respond(sm) {
+            margin-top: 5.8rem;
+            width: 320px;
+          }
+          @include respond(lg) {
+            width: auto;
+            margin-top: 5.8rem;
+            min-width: 550px;
+          }
+        }
+      }
+
+      .tabContainer {
+        width: 100%;
+        height: 19%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 6rem;
+        box-sizing: border-box;
+        @include respond(sm) {
+          width: 55%;
+          height: auto;
+          padding-top: 11.5rem;
+        }
+        .title {
+          width: 100%;
+          text-align: center;
+          @include respond(sm) {
+            width: 100%;
+            height: 7.7rem;
+            text-align: start;
+          }
+          span {
+            font-size: 24px;
+            letter-spacing: 0.6rem;
+          }
+          p {
+            margin: 0;
+            letter-spacing: 0.03rem;
+          }
+        }
+      }
+      .contentContainer {
+        width: 100%;
+        height: 67%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include respond(sm) {
+          width: 45%;
+          height: auto;
+          padding-top: 4rem;
+        }
+        // border: dashed 1px red;
+
+        .defaultCover_2 {
+          width: auto;
+          @include respond(sm) {
+            margin-top: 5rem;
+            min-width: 20rem;
+          }
+          @include respond(lg) {
+            margin-top: 0rem;
+            min-width: 24rem;
+          }
+        }
+        .frame {
+          position: relative;
+          width: auto;
+          height: auto;
+          transform: scale(1);
+          @include respond(sm) {
+            margin-top: 5rem;
+            transform: scale(0.8);
+          }
+          @include respond(lg) {
+            margin-top: 0rem;
+            transform: scale(1);
+          }
+          .leaf1 {
+            transform-origin: 80% 80%;
+            animation: leaf-sway-weak 7s infinite;
+            position: absolute;
+            left: -7rem;
+            top: -3.6rem;
+            @include respond(sm) {
+              left: -10rem;
+              top: -0.5rem;
+            }
+          }
+          .leaf1_ {
+            transform-origin: 0% 80%;
+            animation: leaf-sway-weak 7s infinite;
+            position: absolute;
+            right: -6rem;
+            bottom: 0.2rem;
+            @include respond(sm) {
+              right: -11.5rem;
+              bottom: -1rem;
+            }
+          }
+          .frame_overlay {
+            height: 32.6rem;
+            position: absolute;
+            top: 0;
+            left: 6.5px;
+            pointer-events: none;
+          }
+          .frameMask {
+            width: 16.65rem;
+            height: 33rem;
+            position: relative;
+
+            // SVG 遮罩
+            -webkit-mask-image: url("/images/frameMask.svg");
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: cover;
+
+            mask-image: url("/images/frameMask.svg");
+            mask-repeat: no-repeat;
+            mask-size: 96%;
+            mask-position: 8px 0px;
+
+            overflow: hidden;
+            .video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; /* 影片填滿容器 */
+              display: block;
+              z-index: 1;
+            }
+            /* 🔥 新增這段 */
+            .screenTransition {
+              position: absolute;
+              inset: 0;
+              z-index: 2;
+              background: radial-gradient(
+                circle at center,
+                rgba(30, 30, 30, 1) 0%,
+                rgba(0, 0, 0, 1) 80%
+              );
+              pointer-events: none;
+              filter: blur(10px);
+            }
+          }
+        }
+      }
+
+      .tabContainer_U {
+        z-index: 100;
+        width: 100%;
+        height: 19%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 6rem;
+        box-sizing: border-box;
+        @include respond(sm) {
+          width: 40%;
+          min-width: 340px;
+          height: auto;
+          padding-top: 11.5rem;
+        }
+        @include respond(lg) {
+          width: 30%;
+          min-width: 336px;
+          height: auto;
+          padding-top: 11.5rem;
+        }
+        .title {
+          width: 100%;
+          text-align: center;
+          @include respond(sm) {
+            width: 100%;
+            height: 7.7rem;
+            text-align: start;
+          }
+          span {
+            font-size: 24px;
+            letter-spacing: 0.6rem;
+          }
+          p {
+            margin: 0;
+            letter-spacing: 0.03rem;
+          }
+        }
+      }
+      .contentContainer_U {
+        width: 100%;
+        height: 67%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 12px;
+        box-sizing: border-box;
+        @include respond(sm) {
+          width: 60%;
+          height: auto;
+          padding: 0;
+          padding-top: 8.7rem;
+          padding-left: 1rem;
+        }
+        @include respond(lg) {
+          width: 70%;
+          min-width: 473px;
+          height: auto;
+          padding: 0;
+          padding-top: 9rem;
+          padding-left: 2rem;
+        }
+        // border: dashed 1px red;
+
+        .defaultCover_1 {
+          width: 100%;
+          border-radius: 24px;
+          @include respond(sm) {
+            width: 320px;
+          }
+          @include respond(lg) {
+            width: auto;
+            min-width: 550px;
+          }
+        }
+
+        .userMapContainer {
+          position: relative;
+          picture {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            pointer-events: none;
+          }
+          .leaf1 {
+            transform-origin: 80% 80%;
+            animation: leaf-sway-weak 7s infinite;
+            position: absolute;
+            left: -1.7rem;
+            top: -4.2rem;
+            @include respond(lg) {
+              left: -0.7rem;
+              top: -8.7rem;
+            }
+            z-index: 4;
+          }
+          .leaf1_ {
+            transform-origin: 10% 20%;
+            animation: leaf-sway-weak 7s infinite;
+            position: absolute;
+            right: -5rem;
+            bottom: -3.5rem;
+            @include respond(lg) {
+              transform-origin: 10% 50%;
+              right: -8rem;
+              bottom: -6.5rem;
+            }
+            z-index: 3;
+          }
+          .leaf2 {
+            transform-origin: 80% 50%;
+            animation: leaf-sway-weak 7.5s infinite;
+            position: absolute;
+            position: absolute;
+            left: -5.5rem;
+            top: -1.6rem;
+            @include respond(lg) {
+              transform-origin: 80% 20%;
+              left: -6.5rem;
+              top: -1.7rem;
+            }
+            z-index: 3;
+          }
+          .leaf2_ {
+            transform-origin: 0% 90%;
+            animation: leaf-sway-weak 7.5s infinite;
+            position: absolute;
+            right: -5rem;
+            bottom: 2rem;
+            @include respond(lg) {
+              right: -8rem;
+              bottom: 0rem;
+            }
+            z-index: 4;
+          }
+          .flower {
+            transform-origin: 50% 50%;
+            animation: leaf-sway-weak 7s infinite;
+            position: absolute;
+            left: -1.4rem;
+            top: -1.4rem;
+            @include respond(lg) {
+              left: -2rem;
+              top: -1.9rem;
+            }
+            z-index: 6;
+          }
+        }
+      }
+      .mobileTabContainer {
+        display: flex;
+        align-items: flex-start;
+        height: 14%;
+      }
+      .mobileTabContent {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        // display: flex;
+        // justify-content: flex-start;
+        width: 100%;
+        // border: 2px dashed blue; /* 看得出邊界 */
+        .morph-container {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 1rem;
+        }
+        .morph-card {
+          flex: 0 0 auto;
+        }
+      }
+      .mobileTabContent::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+#contact {
+  background-color: var(--sub-bgcolor);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  min-height: 750px;
+  max-height: 932px;
+  @include respond(sm) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  @include respond(lg) {
+    min-height: 800px;
+    max-height: 932px;
+  }
+  .homeBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // background-image: url(./images/iPhone_5.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    .container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      .leaf1_ {
+        transform-origin: 0% 80%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        left: -3.6rem;
+        bottom: 8.2rem;
+        @include respond(sm) {
+          left: -2.2rem;
+          bottom: -2.8rem;
+        }
+        @include respond(lg) {
+          left: -2.2rem;
+          bottom: -2.8rem;
+        }
+        z-index: 5;
+      }
+      .leaf1_2 {
+        transform-origin: 100% 60%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        right: 5.2rem;
+        bottom: -3rem;
+        @include respond(sm) {
+          right: 6.5rem;
+          bottom: -2.2rem;
+        }
+        @include respond(lg) {
+          right: 6.5rem;
+          bottom: -2.2rem;
+        }
+        z-index: 5;
+      }
+      .leaf1_3 {
+        transform-origin: 100% 30%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        right: -4.9rem;
+        bottom: -5.5rem;
+        @include respond(sm) {
+          right: -3.8rem;
+          bottom: -4.3rem;
+        }
+        @include respond(lg) {
+          right: -3.8rem;
+          bottom: -4.3rem;
+        }
+        z-index: 5;
+      }
+      .flower {
+        transform-origin: 30% 30%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        left: -1.3rem;
+        bottom: 16rem;
+        @include respond(sm) {
+          left: -1.2rem;
+          bottom: 7.5rem;
+        }
+        @include respond(lg) {
+          left: -1.2rem;
+          bottom: 7.5rem;
+        }
+        z-index: 4;
+      }
+      .flower_ {
+        transform-origin: 70% 70%;
+        animation: leaf-sway-weak 7s infinite;
+        position: absolute;
+        right: -1.2rem;
+        bottom: 7.2rem;
+        @include respond(sm) {
+          right: -1.2rem;
+          bottom: 8rem;
+        }
+        @include respond(lg) {
+          right: -1.2rem;
+          bottom: 8rem;
+        }
+        z-index: 4;
+      }
+    }
+  }
+  .contactContainer {
+    width: 100%;
+    height: 100%;
+    // background-image: url(./images/MacBookPro14_4.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color);
+    .container {
+      width: 22rem;
+      flex-direction: column;
+      .card {
+        width: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transform: translate(-0.4rem, 0.5rem);
+        @include respond(sm) {
+          transform: translate(-2rem, 5rem);
+        }
+        @include respond(lg) {
+          transform: translate(-2rem, 5rem);
+        }
+        .cardSvg {
+          z-index: 10;
+        }
+        .info {
+          position: absolute;
+          top: 2.6rem;
+          left: 4.2rem;
+          z-index: 11;
+          .title {
+            font-size: 0.85rem;
+            font-weight: normal;
+            span {
+              font-size: 1rem;
+              font-weight: bolder;
+              letter-spacing: 0.35rem;
+            }
+            margin-bottom: 1.3rem;
+          }
+          .item {
+            display: flex;
+            align-items: center;
+            height: 2.5rem;
+            font-size: 0.85rem;
+            span {
+              margin-left: 0.5rem;
+            }
+            // background-color: red;
+          }
+          // background-color: red;
+        }
+        .leaf1 {
+          transform-origin: 0% 30%;
+          animation: leaf-sway-weak 8s infinite;
+          position: absolute;
+          top: -8.5rem;
+          left: -6rem;
+          @include respond(sm) {
+            top: -8rem;
+            left: -7rem;
+          }
+          @include respond(lg) {
+            top: -8rem;
+            left: -7rem;
+          }
+          z-index: 5;
+        }
+        .leaf1_4 {
+          transform-origin: 100% 20%;
+          animation: leaf-sway-weak 8s infinite;
+          position: absolute;
+          top: 8.2rem;
+          right: -5rem;
+          @include respond(sm) {
+            top: 7rem;
+            right: -7.5rem;
+          }
+          @include respond(lg) {
+            top: 7rem;
+            right: -7.5rem;
+          }
+          z-index: 5;
+        }
+        .flamingo {
+          transform-origin: 80% 80%;
+          animation: leaf-sway-weak 2s infinite;
+          position: absolute;
+          top: -9.5rem;
+          right: -4.5rem;
+          @include respond(sm) {
+            top: -10rem;
+            right: -8.5rem;
+          }
+          @include respond(lg) {
+            top: -10rem;
+            right: -8.5rem;
+          }
+          z-index: 4;
+        }
+        // background-color: red;
+      }
+      .context {
+        position: relative;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        margin-top: 5.5rem;
+        margin-right: 2.3rem;
+        color: var(--sub-color);
+        text-align: right;
+        letter-spacing: 0.3rem;
+        line-height: 2rem;
+        z-index: 10;
+        @include respond(sm) {
+          margin-top: 6.5rem;
+          margin-right: 9.3rem;
+        }
+        @include respond(lg) {
+          margin-top: 6.5rem;
+          margin-right: 9.3rem;
+        }
+        .line {
+          width: 1px;
+          height: 3.5rem;
+          margin-left: 0.6rem;
+          background-color: var(--sub-color);
+        }
+        // background-color: violet;
+      }
+    }
+  }
+  // border: solid 1px #fff;
+}
+
+.leaf-away {
+  display: inline-block;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* 共用的搖擺動畫 (小角度) */
+@keyframes leaf-sway-weak {
+  0% {
+    transform: rotate(0deg) translateX(0px);
+  }
+  25% {
+    transform: rotate(1.5deg) translateX(1px);
+  }
+  50% {
+    transform: rotate(-1.5deg) translateX(-1px);
+  }
+  75% {
+    transform: rotate(1deg) translateX(0.5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0px);
+  }
+}
+
+/* 稍微誇張一點的搖擺 */
+@keyframes leaf-sway-strong {
+  0% {
+    transform: rotate(0deg) translateX(0px);
+  }
+  25% {
+    transform: rotate(3deg) translateX(2px);
+  }
+  50% {
+    transform: rotate(-3deg) translateX(-2px);
+  }
+  75% {
+    transform: rotate(2deg) translateX(1px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0px);
+  }
+}
+
+.title-twinkle {
+  display: inline-block;
+  animation: title 5s ease-in-out infinite 2s;
+}
+
+.title-twinkle_ {
+  display: inline-block;
+  animation: title 5s ease-in-out infinite 2.5s;
+}
+
+@keyframes title {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  10% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  25% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

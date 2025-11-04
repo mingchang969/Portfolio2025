@@ -1,0 +1,24 @@
+.menu-icon {
+  cursor: pointer;
+  stroke-width: 2;
+  fill: none;
+  transition: all 0.3s ease;
+}
+
+.menu-icon line {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+/* 當 open=true 時，轉成叉叉 */
+.menu-icon.open line:nth-child(1) {
+  transform: rotate(45deg) translate(0px, 25%);
+}
+
+.menu-icon.open line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open line:nth-child(3) {
+  transform: rotate(-45deg) translate(0px, -25%);
+}

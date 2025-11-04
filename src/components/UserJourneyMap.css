@@ -1,0 +1,105 @@
+.journey-map {
+  position: relative;
+  display: grid;
+  width: 100%;
+  max-width: 809px;
+  height: 515px;
+  grid-template-columns: 27px repeat(4, 1fr);
+  grid-template-rows: 27px 1fr 1fr 1fr 1fr;
+  grid-auto-rows: auto;
+  background: #546850;
+  color: #d9d9d9;
+  border-radius: 24px;
+  padding: 12px;
+  gap: 6px;
+  /* opacity: 60%; */
+  font-size: 14px;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+@media (min-width: 768px) and (max-width: 1025px) {
+  .journey-map {
+    gap: 6px;
+    height: 470px;
+  }
+}
+@media (min-width: 1025px) {
+  .journey-map {
+    gap: 12px;
+    height: 400px;
+  }
+}
+/* 表頭 */
+.header {
+  color: #546850;
+  text-align: center;
+  background: #d9d9d9;
+  padding: 4px;
+  padding-left: 16px;
+  letter-spacing: 12px;
+  border-radius: 6px;
+}
+.header.empty {
+  background: none;
+}
+
+/* 左側標籤 */
+.row-label {
+  color: #546850;
+  writing-mode: vertical-rl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d9d9d9;
+  border-radius: 8px;
+  padding: 4px;
+  padding-top: 16px;
+  letter-spacing: 12px;
+}
+
+/* 內容格 */
+.cell {
+  border-radius: 8px;
+  padding: 3px;
+  /* min-height: 70px; */
+  min-width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  box-sizing: border-box;
+
+  span {
+    letter-spacing: 0.05rem;
+  }
+}
+
+/* 情緒曲線區 */
+.emotion-line {
+  grid-column: span 4;
+  border-radius: 8px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75px;
+}
+
+/* @media (max-width: 768px) {
+  .cell {
+    min-height: 120px;
+  }
+  .emotion-line {
+    min-height: 128px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1025px) {
+  .cell {
+    min-height: 120px;
+  }
+  .emotion-line {
+    min-height: 128px;
+  }
+} */
