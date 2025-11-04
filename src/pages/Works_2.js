@@ -9,51 +9,52 @@ const tabs = [
     title: "大廳",
     content:
       "提供一個平台，網羅地標的社團，根據分類和關鍵字快速找到自己想找的地標",
-    image: "product_lobby.mov",
+    image:
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238885/product_lobby_zft7si.mov",
   },
   {
     id: "createClub",
     title: "創建社團",
     content:
       "可選主題模式來根據這季主題來競賽，或可選一般模式不限主題地自由創作",
-    image: "product_createClub.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238884/product_createClub_epsduf.mov",
   },
   {
     id: "exploreMap",
     title: "探索地圖",
     content: "顯示不同分類的地標點，可點擊該類標籤呈現於地圖和列表",
-    image: "product_exploreMap.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238882/product_exploreMap_elmg7y.mov",
   },
   {
     id: "label",
     title: "標籤",
     content: "以不同顏色和圖示來客製不同標題的標籤，讓視覺紹上一目瞭然",
-    image: "product_label.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238877/product_label_hclzge.mov",
   },
   {
     id: "addPin",
     title: "新增標點",
     content:
       "透過關鍵字搜尋或是地圖釘選來快速新增地標，而地標資訊也之後可再編輯",
-    image: "product_addPin.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762239960/product_addPin_gyjdxv.mov",
   },
   {
     id: "infoCard",
     title: "資訊卡",
     content: "以圖鑑資訊卡的樣式，網羅大家踩該點分享的照片和心得",
-    image: "product_infoCard.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762239417/product_infoCard_faa5jg.mov",
   },
   {
     id: "post",
     title: "貼文串",
     content: "即時瀏覽最近有什麼新貼文或新地標，快速看見大家的活動和分享",
-    image: "product_post.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238879/product_post_pjewda.mov",
   },
   {
     id: "ranking",
     title: "排行榜",
     content: "透過排行模式參閱最新或最熱門的地點是什麼",
-    image: "product_ranking.mov",
+    image: "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238878/product_ranking_ou3ay7.mov",
   },
 ];
 
@@ -147,7 +148,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                       <AnimatePresence mode="wait">
                         <motion.video
                           key={activeTab.id}
-                          src={`/asset/${activeTab.image}`}
+                          src={activeTab.image}
                           autoPlay
                           loop
                           muted
@@ -188,7 +189,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
           {!isDesktop ? (
             <div className="mobileTabContainer">
               <Reveal direction="left" delay={0.2}>
-                <div className="mobileTabContent" >
+                <div className="mobileTabContent">
                   <MorphCardTabs
                     data={tabs}
                     active={active}
