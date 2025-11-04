@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# production
+dist/
+build/
+
+# environment variables
+.env
+.env.local
+.env.*.local
+
+# editor & system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# temporary files
+*.tmp
+*.temp
+
+# Mac & Linux
+.cache/
+.history/
