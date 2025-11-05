@@ -266,7 +266,7 @@ const Works_3 = forwardRef(({ id }, ref) => {
 
           <div className="contentContainer_U">
             <Reveal direction="left" delay={0.4}>
-              <>
+              <div>
                 {activeTab ? (
                   <motion.div
                     className="userMapContainer"
@@ -311,7 +311,7 @@ const Works_3 = forwardRef(({ id }, ref) => {
                     />
                   </picture>
                 )}
-              </>
+              </div>
             </Reveal>
           </div>
 
