@@ -252,14 +252,14 @@ const Works_3 = forwardRef(({ id }, ref) => {
             </Reveal>
             {isDesktop ? (
               <Reveal direction="left" delay={0.2}>
-                <>
+                <div>
                   <MorphCardTabs
                     data={tabs}
                     active={active}
                     setActive={setActive}
                     style={{ flexDirection: "column" }}
                   />
-                </>
+                </div>
               </Reveal>
             ) : null}
           </div>
