@@ -3,7 +3,7 @@ import MorphCardTabs from "../components/MorphCardTabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 import { ReactComponent as Logo } from "../images/product_logo.svg";
-
+//
 const tabs = [
   {
     id: "lobby",
