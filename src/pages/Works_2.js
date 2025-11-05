@@ -2,6 +2,7 @@ import React, { forwardRef, useState, useEffect, useRef } from "react";
 import MorphCardTabs from "../components/MorphCardTabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
+import { ReactComponent as Logo } from "../images/product_logo.svg";
 
 const tabs = [
   {
@@ -9,7 +10,7 @@ const tabs = [
     title: "大廳",
     content: "提供一個平台，網羅地標的社團，以分類和關鍵字快速找到喜歡的主題",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762238885/product_lobby_zft7si.mov",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_auto/v1762327479/product_lobby_uci7si.mp4",
   },
   {
     id: "createClub",
@@ -87,6 +88,11 @@ const Works_2 = forwardRef(({ id }, ref) => {
     };
   }, []);
 
+  const videoRef = useRef(null);
+  const posterRef = useRef(null);
+  const loadingRef = useRef(null);
+  const loadingFillRef = useRef(null);
+
   return (
     <div id={id} ref={ref}>
       <div className="worksContainer">
@@ -151,9 +157,11 @@ const Works_2 = forwardRef(({ id }, ref) => {
                       {/* 🎬 影片層 */}
                       <AnimatePresence mode="wait">
                         <motion.video
+                          ref={videoRef}
                           key={activeTab.id}
                           src={activeTab.image}
-                          poster={`/asset/product_${activeTab.id}.png`}
+                          // poster={`/asset/product_${activeTab.id}.png`}
+                          preload="metadata"
                           autoPlay
                           loop
                           muted
@@ -163,8 +171,60 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.5 }}
+                          onCanPlay={() => {
+                            // 影片可以播放後淡出 poster/loading
+                            if (loadingRef.current && posterRef.current) {
+                              loadingRef.current.style.opacity = "0";
+                              posterRef.current.style.opacity = "0";
+                              setTimeout(() => {
+                                loadingRef.current.style.display = "none";
+                                posterRef.current.style.display = "none";
+                              }, 500);
+                            }
+                          }}
+                          onLoadStart={() => {
+                            if (loadingRef.current && posterRef.current) {
+                              loadingRef.current.style.opacity = "1";
+                              posterRef.current.style.opacity = "1";
+                            }
+                          }}
+                          onProgress={() => {
+                            if (
+                              videoRef.current &&
+                              videoRef.current.buffered.length > 0 &&
+                              loadingFillRef.current
+                            ) {
+                              const bufferedEnd = videoRef.current.buffered.end(
+                                videoRef.current.buffered.length - 1
+                              );
+                              const duration = videoRef.current.duration;
+                              if (duration > 0) {
+                                const percent = (bufferedEnd / duration) * 100;
+                                loadingFillRef.current.style.width =
+                                  percent + "%";
+                              }
+                            }
+                          }}
                         />
                       </AnimatePresence>
+
+                      {/* loading備圖 */}
+                      <div className="preloadingContainer">
+                        <img
+                          ref={posterRef}
+                          className="poster"
+                          src={`/asset/product_${activeTab.id}.png`}
+                        />
+                        <div ref={loadingRef} className="loading">
+                          <Logo />
+                          <div className="loadingBar">
+                            <div
+                              ref={loadingFillRef}
+                              className="loadingFill"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     {/* 手機外框 */}

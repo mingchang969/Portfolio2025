@@ -2151,6 +2151,54 @@ img {
               pointer-events: none;
               filter: blur(10px);
             }
+            .preloadingContainer {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              background-color: transparent;
+              overflow: hidden;
+              .poster {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 2;
+                opacity: 1;
+                filter: brightness(40%);
+                transition: opacity 0.5s ease;
+              }
+              .loading {
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 35%);
+                z-index: 3;
+                width: 65%;
+                text-align: center;
+                color: white;
+                font-size: 14px;
+                opacity: 1;
+                transition: opacity 0.5s ease;
+                .loadingBar {
+                  width: 100%;
+                  height: 5px;
+                  margin-top: 0.7rem;
+                  background: rgba(255, 255, 255, 0.3);
+                  border-radius: 3px;
+                  overflow: hidden;
+                  margin-bottom: 6px;
+                  .loadingFill {
+                    width: 0%;
+                    height: 100%;
+                    background: #bec94a;
+                    transition: width 0.2s linear;
+                  }
+                }
+              }
+            }
           }
         }
       }
