@@ -160,7 +160,6 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           ref={videoRef}
                           key={activeTab.id}
                           src={activeTab.image}
-                          // poster={`/asset/product_${activeTab.id}.png`}
                           preload="metadata"
                           autoPlay
                           loop
@@ -187,6 +186,35 @@ const Works_2 = forwardRef(({ id }, ref) => {
                               loadingRef.current.style.opacity = "1";
                               posterRef.current.style.opacity = "1";
                             }
+
+                            // ✅ 防呆：5 秒後還沒載完就強制隱藏 loading
+                            if (window.loadingTimer)
+                              clearTimeout(window.loadingTimer);
+                            window.loadingTimer = setTimeout(() => {
+                              if (loadingRef.current)
+                                loadingRef.current.style.opacity = "0";
+                              if (posterRef.current)
+                                posterRef.current.style.opacity = "0";
+                            }, 5000);
+                          }}
+                          onLoadedData={() => {
+                            // ✅ iOS、Android 都能觸發的事件
+                            try {
+                              videoRef.current.play().catch(() => {});
+                            } catch (e) {}
+
+                            if (loadingRef.current && posterRef.current) {
+                              loadingRef.current.style.opacity = "0";
+                              posterRef.current.style.opacity = "0";
+                              setTimeout(() => {
+                                loadingRef.current.style.display = "none";
+                                posterRef.current.style.display = "none";
+                              }, 500);
+                            }
+
+                            // 清除倒數
+                            if (window.loadingTimer)
+                              clearTimeout(window.loadingTimer);
                           }}
                           onProgress={() => {
                             if (!isDesktop) return;
