@@ -257,9 +257,21 @@ const Works_2 = forwardRef(({ id }, ref) => {
                               </div>
                             </>
                           ) : (
-                            <div className="loadingBounce">
-                              <Logo />
-                            </div>
+                            !hasStarted &&
+                            isMobile && (
+                              <div
+                                className="tapToStart"
+                                onClick={() => {
+                                  setHasStarted(true);
+                                  videoRef.current.play();
+                                }}
+                              >
+                                <div className="loadingBounce">
+                                  <Logo />
+                                </div>
+                                <p>點一下開始播放</p>
+                              </div>
+                            )
                           )}
                         </div>
                       </div>

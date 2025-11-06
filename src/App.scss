@@ -2197,11 +2197,21 @@ img {
                     transition: width 0.2s linear;
                   }
                 }
-                /* 🔹 Logo 彈跳動畫（手機專用） */
-                .loadingBounce svg {
-                  width: 50px;
-                  height: 50px;
-                  animation: bounce 0.7s infinite ease-in-out;
+                .tapToStart {
+                  position: fixed;
+                  inset: 0;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  background: black;
+                  color: white;
+                  z-index: 999;
+                  .loadingBounce svg {
+                    width: 50px;
+                    height: 50px;
+                    animation: bounce 0.7s infinite ease-in-out;
+                  }
                 }
 
                 @keyframes bounce {
