@@ -161,13 +161,13 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           key={activeTab.id}
                           src={activeTab.image}
                           // crossOrigin="anonymous"
-                          preload="metadata"
+                          // preload="metadata"
                           autoPlay
                           loop
                           muted
                           playsInline
                           className="video"
-                          // initial={{ opacity: 0 }}
+                          initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.5 }}
