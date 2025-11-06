@@ -10,56 +10,56 @@ const tabs = [
     title: "大廳",
     content: "提供一個平台，網羅地標的社團，以分類和關鍵字快速找到喜歡的主題",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_lobby_uci7si.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_lobby_uci7si.mp4",
   },
   {
     id: "createClub",
     title: "創建社團",
     content: "選主題模式來根據這季主題來競賽，或選一般模式不限主題自由創作",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_createClub_phetbp.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_createClub_phetbp.mp4",
   },
   {
     id: "exploreMap",
     title: "探索地圖",
     content: "顯示不同分類的地標點，可點擊該類標籤呈現於地圖和列表",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_exploreMap_rgaffz.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_exploreMap_rgaffz.mp4",
   },
   {
     id: "label",
     title: "標籤",
     content: "以不同顏色和圖示來客製不同標題的標籤，讓視覺紹上一目瞭然",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_label_mqwskh.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_label_mqwskh.mp4",
   },
   {
     id: "addPin",
     title: "新增標點",
     content: "透過關鍵字搜尋或地圖釘選來新增地標，而地標資訊之後也可再編輯",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_addPin_osz1gs.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_addPin_osz1gs.mp4",
   },
   {
     id: "infoCard",
     title: "資訊卡",
     content: "以圖鑑資訊卡的樣式，網羅大家踩該點分享的照片和心得",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_infoCard_qqqbc1.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_infoCard_qqqbc1.mp4",
   },
   {
     id: "post",
     title: "貼文串",
     content: "即時瀏覽最近有什麼新貼文或新地標，快速看見大家的活動和分享",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_post_c4txj5.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_post_c4txj5.mp4",
   },
   {
     id: "ranking",
     title: "排行榜",
     content: "透過排行模式參閱最新或最熱門的地點是什麼",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4:high,vc_h264/product_ranking_vadfis.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_ranking_vadfis.mp4",
   },
 ];
 
@@ -160,14 +160,14 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           ref={videoRef}
                           key={activeTab.id}
                           src={activeTab.image}
-                          crossOrigin="anonymous"
+                          // crossOrigin="anonymous"
                           preload="metadata"
                           autoPlay
                           loop
                           muted
                           playsInline
                           className="video"
-                          initial={{ opacity: 0 }}
+                          // initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.5 }}
@@ -187,38 +187,8 @@ const Works_2 = forwardRef(({ id }, ref) => {
                               loadingRef.current.style.opacity = "1";
                               posterRef.current.style.opacity = "1";
                             }
-
-                            // ✅ 防呆：5 秒後還沒載完就強制隱藏 loading
-                            if (window.loadingTimer)
-                              clearTimeout(window.loadingTimer);
-                            window.loadingTimer = setTimeout(() => {
-                              if (loadingRef.current)
-                                loadingRef.current.style.opacity = "0";
-                              if (posterRef.current)
-                                posterRef.current.style.opacity = "0";
-                            }, 5000);
-                          }}
-                          onLoadedData={() => {
-                            // ✅ iOS、Android 都能觸發的事件
-                            try {
-                              videoRef.current.play().catch(() => {});
-                            } catch (e) {}
-
-                            if (loadingRef.current && posterRef.current) {
-                              loadingRef.current.style.opacity = "0";
-                              posterRef.current.style.opacity = "0";
-                              setTimeout(() => {
-                                loadingRef.current.style.display = "none";
-                                posterRef.current.style.display = "none";
-                              }, 500);
-                            }
-
-                            // 清除倒數
-                            if (window.loadingTimer)
-                              clearTimeout(window.loadingTimer);
                           }}
                           onProgress={() => {
-                            if (!isDesktop) return;
                             if (
                               videoRef.current &&
                               videoRef.current.buffered.length > 0 &&
@@ -246,21 +216,13 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           src={`/asset/product_${activeTab.id}.png`}
                         />
                         <div ref={loadingRef} className="loading">
-                          {isDesktop ? (
-                            <>
-                              <Logo />
-                              <div className="loadingBar">
-                                <div
-                                  ref={loadingFillRef}
-                                  className="loadingFill"
-                                ></div>
-                              </div>
-                            </>
-                          ) : (
-                            <div className="loadingBounce">
-                              <Logo />
-                            </div>
-                          )}
+                          <Logo />
+                          <div className="loadingBar">
+                            <div
+                              ref={loadingFillRef}
+                              className="loadingFill"
+                            ></div>
+                          </div>
                         </div>
                       </div>
                     </div>
