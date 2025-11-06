@@ -171,45 +171,45 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.5 }}
-                          // onCanPlay={() => {
-                          //   // 影片可以播放後淡出 poster/loading
-                          //   if (loadingRef.current && posterRef.current) {
-                          //     loadingRef.current.style.opacity = "0";
-                          //     posterRef.current.style.opacity = "0";
-                          //     setTimeout(() => {
-                          //       loadingRef.current.style.display = "none";
-                          //       posterRef.current.style.display = "none";
-                          //     }, 500);
-                          //   }
-                          // }}
-                          // onLoadStart={() => {
-                          //   if (loadingRef.current && posterRef.current) {
-                          //     loadingRef.current.style.opacity = "1";
-                          //     posterRef.current.style.opacity = "1";
-                          //   }
-                          // }}
-                          // onProgress={() => {
-                          //   if (
-                          //     videoRef.current &&
-                          //     videoRef.current.buffered.length > 0 &&
-                          //     loadingFillRef.current
-                          //   ) {
-                          //     const bufferedEnd = videoRef.current.buffered.end(
-                          //       videoRef.current.buffered.length - 1
-                          //     );
-                          //     const duration = videoRef.current.duration;
-                          //     if (duration > 0) {
-                          //       const percent = (bufferedEnd / duration) * 100;
-                          //       loadingFillRef.current.style.width =
-                          //         percent + "%";
-                          //     }
-                          //   }
-                          // }}
+                          onCanPlay={() => {
+                            // 影片可以播放後淡出 poster/loading
+                            if (loadingRef.current && posterRef.current) {
+                              loadingRef.current.style.opacity = "0";
+                              posterRef.current.style.opacity = "0";
+                              setTimeout(() => {
+                                loadingRef.current.style.display = "none";
+                                posterRef.current.style.display = "none";
+                              }, 500);
+                            }
+                          }}
+                          onLoadStart={() => {
+                            if (loadingRef.current && posterRef.current) {
+                              loadingRef.current.style.opacity = "1";
+                              posterRef.current.style.opacity = "1";
+                            }
+                          }}
+                          onProgress={() => {
+                            if (
+                              videoRef.current &&
+                              videoRef.current.buffered.length > 0 &&
+                              loadingFillRef.current
+                            ) {
+                              const bufferedEnd = videoRef.current.buffered.end(
+                                videoRef.current.buffered.length - 1
+                              );
+                              const duration = videoRef.current.duration;
+                              if (duration > 0) {
+                                const percent = (bufferedEnd / duration) * 100;
+                                loadingFillRef.current.style.width =
+                                  percent + "%";
+                              }
+                            }
+                          }}
                         />
                       </AnimatePresence>
 
                       {/* loading備圖 */}
-                      {/* <div className="preloadingContainer">
+                      <div className="preloadingContainer">
                         <img
                           ref={posterRef}
                           className="poster"
@@ -224,7 +224,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                             ></div>
                           </div>
                         </div>
-                      </div> */}
+                      </div>
                     </div>
 
                     {/* 手機外框 */}
