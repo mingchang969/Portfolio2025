@@ -189,6 +189,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                             }
                           }}
                           onProgress={() => {
+                            if (!isDesktop) return;
                             if (
                               videoRef.current &&
                               videoRef.current.buffered.length > 0 &&
@@ -216,13 +217,21 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           src={`/asset/product_${activeTab.id}.png`}
                         />
                         <div ref={loadingRef} className="loading">
-                          <Logo />
-                          <div className="loadingBar">
-                            <div
-                              ref={loadingFillRef}
-                              className="loadingFill"
-                            ></div>
-                          </div>
+                          {isDesktop ? (
+                            <>
+                              <Logo />
+                              <div className="loadingBar">
+                                <div
+                                  ref={loadingFillRef}
+                                  className="loadingFill"
+                                ></div>
+                              </div>
+                            </>
+                          ) : (
+                            <div className="loadingBounce">
+                              <Logo />
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
