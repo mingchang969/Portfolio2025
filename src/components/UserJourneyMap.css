@@ -47,15 +47,13 @@
 /* 左側標籤 */
 .row-label {
   color: #546850;
-  writing-mode: vertical-rl;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #d9d9d9;
   border-radius: 8px;
   padding: 4px;
-  padding-top: 16px;
-  letter-spacing: 12px;
 }
 
 /* 內容格 */
