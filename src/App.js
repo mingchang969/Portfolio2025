@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Skill from "./pages/Skill";
 import Experience from "./pages/Experience";
+import Works_0 from "./pages/Works_0";
 import Works_1 from "./pages/Works_1";
 import Works_2 from "./pages/Works_2";
 import Works_3 from "./pages/Works_3";
@@ -17,6 +18,7 @@ function App() {
     about: useRef(),
     skill: useRef(),
     experience: useRef(),
+    works_0: useRef(),
     works_1: useRef(),
     works_2: useRef(),
     works_3: useRef(),
@@ -35,6 +37,7 @@ function App() {
       <About id="about" ref={sectionRefs.about} />
       <Skill id="skill" ref={sectionRefs.skill} />
       <Experience id="experience" ref={sectionRefs.experience} />
+      <Works_0 id="works" ref={sectionRefs.works_0} />
       <Works_1 id="works" ref={sectionRefs.works_1} />
       <Works_2 id="works" ref={sectionRefs.works_2} />
       <Works_3 id="works" ref={sectionRefs.works_3} />
