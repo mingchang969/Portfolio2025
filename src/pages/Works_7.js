@@ -10,7 +10,7 @@ const tabs = [
   {
     id: "single",
     title: "挑戰環島一人行",
-    content_1: "想計畫騎車拜訪每個縣市的風景，又能順利環島",
+    content_1: "想計畫騎車走訪各縣市的風景，又能順利環島",
     content_2: "",
     image: "/asset/userMap_single.png",
     rows: [
@@ -51,7 +51,7 @@ const tabs = [
   {
     id: "couple",
     title: "雙人出國之旅",
-    content_1: "想要出去玩能夠輕輕鬆鬆，不因行程緊張和吵架",
+    content_1: "想出去玩能夠輕輕鬆鬆，不因行程緊張和吵架",
     content_2: "",
     image: "/asset/userMap_couple.png",
     rows: [
@@ -92,7 +92,7 @@ const tabs = [
   {
     id: "group",
     title: "三五朋友來踏青",
-    content_1: "人多想要大家跟上行程，保有自由彈性不走散",
+    content_1: "人多想大家跟上行程，保有自由彈性不走散",
     content_2: "",
     image: "/asset/userMap_group.png",
     rows: [
