@@ -126,9 +126,11 @@ export default function MorphCardTabs({ data, active, setActive, style }) {
                     <div className="morph-content">
                       <p>{tab.content_1}</p>
                     </div>
-                    <div className="morph-content">
-                      <p>{tab.content_2}</p>
-                    </div>
+                    {tab.content_2 ? (
+                      <div className="morph-content">
+                        <p>{tab.content_2}</p>
+                      </div>
+                    ) : null}
                   </motion.div>
                 </AnimatePresence>
               </div>
