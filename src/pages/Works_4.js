@@ -2,7 +2,7 @@ import React, { forwardRef, useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 
-const Works_0 = forwardRef(({ id }, ref) => {
+const Works_4 = forwardRef(({ id }, ref) => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Works_0 = forwardRef(({ id }, ref) => {
           <div className="titleContainer">
             <Reveal direction="left">
               <motion.div
-                className="defaultCover"
+                className="defaultCover_2"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -40 }}
@@ -31,7 +31,7 @@ const Works_0 = forwardRef(({ id }, ref) => {
             </Reveal>
             <Reveal direction="left" delay={0.2}>
               <div className="title">
-                I.　<span>地標日誌</span> <br /><b>Pinlogue</b>
+                II.　<span>旅行嚮導</span> <br /><b>GoTogether</b>
               </div>
             </Reveal>
           </div>
@@ -41,4 +41,4 @@ const Works_0 = forwardRef(({ id }, ref) => {
   );
 });
 
-export default Works_0;
+export default Works_4;

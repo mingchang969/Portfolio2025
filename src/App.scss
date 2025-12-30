@@ -1501,6 +1501,25 @@ img {
             background-image: url(../public/asset/Banner_D.png);
           }
         }
+        .defaultCover_2 {
+          width: 371px;
+          height: 520px;
+          margin-top: 2rem;
+          border-radius: 24px;
+          background-image: url(../public/asset/Banner_M_2.png);
+          background-size: cover;
+          background-position: center;
+          @include respond(sm) {
+            width: 100%;
+            height: 352px;
+            background-image: url(../public/asset/Banner_D_2.png);
+          }
+          @include respond(lg) {
+            width: 100%;
+            height: 352px;
+            background-image: url(../public/asset/Banner_D_2.png);
+          }
+        }
         .title {
           margin-top: 0.5rem;
           width: 371px;

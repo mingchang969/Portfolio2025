@@ -7,6 +7,9 @@ import { ReactComponent as Fo } from "../images/icon_fo.svg";
 import { ReactComponent as Re } from "../images/icon_re.svg";
 import { ReactComponent as Ad } from "../images/icon_ad.svg";
 import { ReactComponent as Kn } from "../images/icon_kn.svg";
+import { ReactComponent as S } from "../images/icon_single.svg";
+import { ReactComponent as C } from "../images/icon_couple.svg";
+import { ReactComponent as G } from "../images/icon_group.svg";
 
 export default function MorphCardTabs({ data, active, setActive, style }) {
   useEffect(() => {
@@ -50,6 +53,15 @@ export default function MorphCardTabs({ data, active, setActive, style }) {
                 break;
               case "mountainClimbing":
                 icon = <Ad style={{ fill: "#f0ff9bff", stroke: "none" }} />;
+                break;
+              case "single":
+                icon = <S style={{ fill: "#f0ff9bff", stroke: "none" }} />;
+                break;
+              case "couple":
+                icon = <C style={{ fill: "#fc868cff", stroke: "none" }} />;
+                break;
+              case "group":
+                icon = <G style={{ fill: "#5DC2F4", stroke: "none" }} />;
                 break;
             }
           }

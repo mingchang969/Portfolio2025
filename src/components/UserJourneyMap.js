@@ -88,6 +88,15 @@ function EmotionLine({ values = [], padding = 20, colorId }) {
       case "mountainClimbing":
         color = "#f0ff9bff";
         break;
+      case "single":
+        color = "#f0ff9bff";
+        break;
+      case "couple":
+        color = "#fc868cff";
+        break;
+      case "group":
+        color = "#5DC2F4";
+        break;
       default:
         color = "#fff";
     }

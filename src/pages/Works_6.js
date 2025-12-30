@@ -6,60 +6,39 @@ import { ReactComponent as Logo } from "../images/product_logo.svg";
 //
 const tabs = [
   {
-    id: "lobby",
-    title: "大廳",
-    content: "提供一個平台，網羅地標的社團，以分類和關鍵字快速找到喜歡的主題",
+    id: "guide",
+    title: "導覽",
+    content: "化身小導遊，隨時追蹤目前行程，並提供路線指引和行程導覽",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_lobby_uci7si.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_guide_lq5wwe.mp4",
   },
   {
-    id: "createClub",
-    title: "創建社團",
-    content: "選主題模式來根據這季主題來競賽，或選一般模式不限主題自由創作",
+    id: "find",
+    title: "探索",
+    content: "根據該行程的景點包，顯示食衣住行育樂等地標，可加入最愛",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_createClub_phetbp.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_find_alzgz9.mp4",
   },
   {
-    id: "exploreMap",
-    title: "探索地圖",
-    content: "顯示不同分類的地標點，可點擊該類標籤呈現於地圖和列表",
+    id: "team",
+    title: "團隊",
+    content: "顯示每個旅友目前位置，可以查看彼此資訊、使用通話和聊天室",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_exploreMap_rgaffz.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_team_qcyamu.mp4",
   },
   {
-    id: "label",
-    title: "標籤",
-    content: "以不同顏色和圖示來客製不同標題的標籤，讓視覺紹上一目瞭然",
+    id: "note",
+    title: "提醒",
+    content: "可根據不同條件觸發提醒功能，作為出發前或旅途中的隨身筆記",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_label_mqwskh.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_note_oeebvm.mp4",
   },
   {
-    id: "addPin",
-    title: "新增標點",
-    content: "透過關鍵字搜尋或地圖釘選來新增地標，而地標資訊之後也可再編輯",
+    id: "timeline",
+    title: "時間軸",
+    content: "透過拖曳時間軸顯示行進時序，以簡易操作來時間視覺化",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_addPin_osz1gs.mp4",
-  },
-  {
-    id: "infoCard",
-    title: "資訊卡",
-    content: "以圖鑑資訊卡的樣式，網羅大家踩該點分享的照片和心得",
-    image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_infoCard_qqqbc1.mp4",
-  },
-  {
-    id: "post",
-    title: "貼文串",
-    content: "即時瀏覽最近有什麼新貼文或新地標，快速看見大家的活動和分享",
-    image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_post_c4txj5.mp4",
-  },
-  {
-    id: "ranking",
-    title: "排行榜",
-    content: "透過排行模式參閱最新或最熱門的地點是什麼",
-    image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_ranking_vadfis.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_timeline_fakdp5.mp4",
   },
 ];
 
@@ -72,7 +51,7 @@ images.forEach((name) => {
   desktopImages[name] = require(`../images/desktop/works/${name}.png`);
 });
 
-const Works_2 = forwardRef(({ id }, ref) => {
+const Works_6 = forwardRef(({ id }, ref) => {
   const [active, setActive] = useState(null);
   const activeTab = tabs.find((tab) => tab.id === active);
 
@@ -165,6 +144,11 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           muted
                           playsInline
                           className="video"
+                          style={{
+                            marginLeft: "2px",
+                            marginTop: "-4.6px",
+                            scale: "1.017",
+                          }}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
@@ -238,7 +222,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                   /* 💤 沒選取時顯示封面照 */
                   <motion.img
                     key="defaultCover"
-                    src="/asset/product_cover.png"
+                    src="/asset/product_cover_2.png"
                     className="defaultCover_2"
                     alt="defaultCover"
                     initial={{ opacity: 0, y: 40 }}
@@ -270,4 +254,4 @@ const Works_2 = forwardRef(({ id }, ref) => {
   );
 });
 
-export default Works_2;
+export default Works_6;
