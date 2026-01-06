@@ -45,7 +45,7 @@ const Home = forwardRef(({ id }, ref) => {
           </Reveal>
           <Reveal direction="left" delay={0.4}>
             <div className="subtitle title-twinkle_">
-              我是<span>UI</span>設計師
+              我是<span>UI/UX</span>設計師
             </div>
           </Reveal>
         </div>

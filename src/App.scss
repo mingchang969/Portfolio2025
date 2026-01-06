@@ -838,8 +838,8 @@ img {
       .subtitle {
         font-family: SubFont;
         color: var(--main-color);
-        --Pstart: 19;
-        --Pend: 20;
+        --Pstart: 16;
+        --Pend: 18;
         --Wmin: 390;
         --Wmax: 768;
         font-size: clamp(
@@ -853,8 +853,8 @@ img {
           ),
           calc(var(--Pend) * 1px)
         );
-        --PstartLS: 6;
-        --PendLS: 15;
+        --PstartLS: 2;
+        --PendLS: 10;
         --WminLS: 390;
         --WmaxLS: 768;
         letter-spacing: clamp(
@@ -873,14 +873,14 @@ img {
         );
         margin: 0 0 0 0.2rem;
         @include respond(sm) {
-          font-size: 1.5rem;
-          letter-spacing: 0.8rem;
+          font-size: 1.2rem;
+          letter-spacing: 0.3rem;
         }
         @include respond(lg) {
           font-family: SubFont;
           color: var(--main-color);
-          --Pstart: 26;
-          --Pend: 27;
+          --Pstart: 20;
+          --Pend: 22;
           --Wmin: 1024;
           --Wmax: 1512;
           font-size: clamp(
@@ -895,7 +895,7 @@ img {
             calc(var(--Pend) * 1px)
           );
           --PstartLS: 6;
-          --PendLS: 15;
+          --PendLS: 10;
           --WminLS: 1024;
           --WmaxLS: 1512;
           letter-spacing: clamp(
@@ -914,9 +914,9 @@ img {
           );
         }
         span {
-          font-size: 2.5rem;
-          --PstartLS: 1.6;
-          --PendLS: 7;
+          font-size: 1.8rem;
+          --PstartLS: 0;
+          --PendLS: 0;
           --WminLS: 390;
           --WmaxLS: 768;
           letter-spacing: clamp(
@@ -933,15 +933,16 @@ img {
             ),
             calc(var(--PendLS) * 1px)
           );
-          vertical-align: -0.4rem;
-          margin: 0 0.3rem 0 0;
+          vertical-align: -2px;
+          margin: 0 0.2rem 0 0;
           @include respond(sm) {
-            font-size: 2.5rem;
-            letter-spacing: 0.5rem;
+            font-size: 2.3rem;
+            letter-spacing: 0.1rem;
+            vertical-align: -3px;
           }
           @include respond(lg) {
-            --Pstart: 66;
-            --Pend: 70;
+            --Pstart: 42;
+            --Pend: 46;
             --Wmin: 1024;
             --Wmax: 1512;
             font-size: clamp(
@@ -958,8 +959,8 @@ img {
               ),
               calc(var(--Pend) * 1px)
             );
-            --PstartLS: 6;
-            --PendLS: 8;
+            --PstartLS: 0;
+            --PendLS: 2;
             --WminLS: 768;
             --WmaxLS: 1512;
             letter-spacing: clamp(
@@ -976,7 +977,7 @@ img {
               ),
               calc(var(--PendLS) * 1px)
             );
-            vertical-align: -0.9rem;
+            vertical-align: -4px;
             margin: 0 0.5rem 0 0;
           }
         }
