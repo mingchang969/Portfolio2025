@@ -61,6 +61,14 @@ const Experience = forwardRef(({ id }, ref) => {
               </div>
             </div>
           </Reveal>
+          <Reveal direction="bottom" delay={0.8}>
+            <div className="dot">
+              <div className="content">
+                <div className="title">山崎製パン会社</div>
+                <div className="subtitle">日本打工度假</div>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </div>
       <div className="homeBg">

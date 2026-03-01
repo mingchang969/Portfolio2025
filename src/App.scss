@@ -1521,6 +1521,25 @@ img {
             background-image: url(../public/asset/Banner_D_2.png);
           }
         }
+        .defaultCover_3 {
+          width: 371px;
+          height: 520px;
+          margin-top: 2rem;
+          border-radius: 24px;
+          background-image: url(../public/asset/Banner_M_3.png);
+          background-size: cover;
+          background-position: center;
+          @include respond(sm) {
+            width: 100%;
+            height: 352px;
+            background-image: url(../public/asset/Banner_D_3.png);
+          }
+          @include respond(lg) {
+            width: 100%;
+            height: 352px;
+            background-image: url(../public/asset/Banner_D_3.png);
+          }
+        }
         .title {
           margin-top: 0.5rem;
           width: 371px;
@@ -1731,6 +1750,28 @@ img {
               overflow: hidden;
               @include respond(lg) {
                 width: 50%;
+                min-width: 190px;
+                height: 100%;
+                flex-direction: row;
+              }
+              // aspect-ratio: 3 / 2;
+              picture img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+              }
+            }
+            .framer_ {
+              position: relative;
+              width: 100%;
+              border-radius: 24px;
+              overflow: hidden;
+              @include respond(lg) {
+                width: 100%;
                 min-width: 190px;
                 height: 100%;
                 flex-direction: row;
@@ -2083,6 +2124,19 @@ img {
           @include respond(sm) {
             margin-top: 5.8rem;
             width: 320px;
+          }
+          @include respond(lg) {
+            width: auto;
+            margin-top: 5.8rem;
+            min-width: 550px;
+          }
+        }
+        .defaultCover_2 {
+          width: 100%;
+          border-radius: 24px;
+          @include respond(sm) {
+            margin-top: 5.8rem;
+            width: 100%;
           }
           @include respond(lg) {
             width: auto;
