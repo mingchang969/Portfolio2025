@@ -2,9 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence, delay } from "framer-motion";
 import "./UserJourneyMap.css";
 
-export default function UserJourneyMap({ stages, rows, id }) {
+export default function UserJourneyMap({ stages, rows, id, style }) {
   return (
-    <div className="journey-map">
+    <div className="journey-map" style={style}>
       {/* 表頭 */}
       <div className="header empty"></div>
       {stages.map((stage) => (
@@ -97,6 +97,15 @@ function EmotionLine({ values = [], padding = 20, colorId }) {
       case "group":
         color = "#5DC2F4";
         break;
+      case "dashboard":
+        color = "#fc868cff";
+        break;
+      case "information":
+        color = "#ffc75eff";
+        break;
+      case "processing":
+        color = "#5DC2F4";
+        break;
       default:
         color = "#fff";
     }
@@ -122,7 +131,7 @@ function EmotionLine({ values = [], padding = 20, colorId }) {
 
       const tempPath = document.createElementNS(
         "http://www.w3.org/2000/svg",
-        "path"
+        "path",
       );
       tempPath.setAttribute("d", pathD);
       setPathLength(tempPath.getTotalLength());

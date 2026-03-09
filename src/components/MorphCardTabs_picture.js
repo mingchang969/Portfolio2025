@@ -10,7 +10,9 @@ import { ReactComponent as Kn } from "../images/icon_kn.svg";
 import { ReactComponent as S } from "../images/icon_single.svg";
 import { ReactComponent as C } from "../images/icon_couple.svg";
 import { ReactComponent as G } from "../images/icon_group.svg";
-
+import { ReactComponent as Eye } from "../images/icon_eye.svg";
+import { ReactComponent as Brain } from "../images/icon_brain.svg";
+import { ReactComponent as Hand } from "../images/icon_hand.svg";
 export default function MorphCardTabs({ data, active, setActive, style }) {
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -62,6 +64,15 @@ export default function MorphCardTabs({ data, active, setActive, style }) {
                 break;
               case "group":
                 icon = <G style={{ fill: "#5DC2F4", stroke: "none" }} />;
+                break;
+              case "dashboard":
+                icon = <Eye style={{ fill: "#fc868cff", stroke: "none" }} />;
+                break;
+              case "information":
+                icon = <Brain style={{ fill: "#ffc75eff", stroke: "none" }} />;
+                break;
+              case "processing":
+                icon = <Hand style={{ fill: "#5DC2F4", stroke: "none" }} />;
                 break;
             }
           }

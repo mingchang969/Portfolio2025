@@ -15,6 +15,7 @@ import Works_7 from "./pages/Works_7";
 import Works_8 from "./pages/Works_8";
 import Works_9 from "./pages/Works_9";
 import Works_10 from "./pages/Works_10";
+import Works_11 from "./pages/Works_11";
 import Contact from "./pages/Contact";
 
 import { useRef } from "react";
@@ -36,6 +37,7 @@ function App() {
     works_8: useRef(),
     works_9: useRef(),
     works_10: useRef(),
+    works_11: useRef(),
     contact: useRef(),
   };
 
@@ -54,6 +56,7 @@ function App() {
       <Works_8 id="works" ref={sectionRefs.works_8} />
       <Works_9 id="works" ref={sectionRefs.works_9} />
       <Works_10 id="works" ref={sectionRefs.works_10} />
+      <Works_11 id="works" ref={sectionRefs.works_11} />
       <Works_0 id="works" ref={sectionRefs.works_0} />
       <Works_1 id="works" ref={sectionRefs.works_1} />
       <Works_2 id="works" ref={sectionRefs.works_2} />

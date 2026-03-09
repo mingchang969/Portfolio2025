@@ -1,5 +1,5 @@
 import React, { forwardRef, useState, useEffect, useRef } from "react";
-import MorphCardTabs from "../components/MorphCardTabs_light";
+import MorphCardTabs from "../components/MorphCardTabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 
@@ -58,16 +58,19 @@ const tabs = [
   {
     id: "dashboard",
     title: "異動總覽",
+    content: "即時彙整所有延誤與取消航班，在最短時間掌握整體狀況與處理優先順序",
     component: <Dashboard />,
   },
   {
     id: "information",
     title: "詳細資訊",
+    content: "聚焦單一航班資訊，協助客服在處理旅客前先建立完整情境理解",
     component: <Information />,
   },
   {
     id: "processing",
     title: "旅客處理",
+    content: "系統依據航班狀態與規則，自動標示每位旅客可採取的處理方式",
     component: <Processing />,
   },
 ];
@@ -106,6 +109,7 @@ const Works_1 = forwardRef(({ id }, ref) => {
                     data={tabs}
                     active={active}
                     setActive={setActive}
+                    style={{ flexDirection: "column" }}
                   />
                 </div>
               </Reveal>
