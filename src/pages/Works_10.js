@@ -147,7 +147,6 @@ const Works_1 = forwardRef(({ id }, ref) => {
               <Reveal direction="left" delay={0.2}>
                 <div
                   className="mobileTabContent"
-                  style={{ marginTop: "1.2rem" }}
                 >
                   <MorphCardTabs
                     data={tabs}
