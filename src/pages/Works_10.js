@@ -56,19 +56,19 @@ const Processing = () => (
 
 const tabs = [
   {
-    id: "dashboard",
+    id: "changDashboard",
     title: "異動總覽",
     content: "即時彙整所有延誤與取消航班，在最短時間掌握整體狀況與處理優先順序",
     component: <Dashboard />,
   },
   {
-    id: "information",
+    id: "detailInformation",
     title: "詳細資訊",
     content: "聚焦單一航班資訊，協助客服在處理旅客前先建立完整情境理解",
     component: <Information />,
   },
   {
-    id: "processing",
+    id: "customerProcessing",
     title: "旅客處理",
     content: "系統依據航班狀態與規則，自動標示每位旅客可採取的處理方式",
     component: <Processing />,
