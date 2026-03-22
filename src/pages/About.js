@@ -16,13 +16,13 @@ const About = forwardRef(({ id }, ref) => {
       <div className="aboutContainer">
         <Reveal>
           <div className="context">
-            未知就像一種引力
+            比起畫漂亮畫面
             <br />
-            即使啟航於茫茫
+           「這個設計是否真的解決問題」
             <br />
-            始終能找到大陸和島嶼
+            我擅長從使用者與商業目標之間找到平衡
             <br />
-            等著我探險和創造
+            讓設計真正發揮影響力
           </div>
         </Reveal>
       </div>
