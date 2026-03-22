@@ -126,8 +126,8 @@ const Works_7 = forwardRef(({ id }, ref) => {
           <div className="tabContainer_U">
             <Reveal direction="left" delay={0}>
               <div className="title">
-                <span>使用者旅程地圖</span>
-                <p>User Journey Map</p>
+                <span>使用者旅程分析</span>
+                <p>User Journey Analysis</p>
               </div>
             </Reveal>
             {isDesktop ? (

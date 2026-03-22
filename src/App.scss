@@ -2135,13 +2135,65 @@ img {
           width: 100%;
           border-radius: 24px;
           @include respond(sm) {
-            margin-top: 5.8rem;
+            // margin-top: 5.8rem;
             width: 100%;
           }
           @include respond(lg) {
-            width: 751px;
-            margin-top: 5.8rem;
+            width: 100%;
+            // margin-top: 5.8rem;
             min-width: 550px;
+          }
+        }
+        .tagNum {
+          display: flex;
+          justify-content: center;
+          align-items: centers;
+          width: 14px;
+          height: 14px;
+          font-size: 8px;
+          color: #fff;
+          font-weight: bolder;
+          padding-top: 2px;
+          box-sizing: border-box;
+          border-radius: 6px;
+          background-color: #fd7f83;
+          @include respond(sm) {
+            width: 16px;
+            height: 16px;
+            font-size: 10px;
+          }
+          @include respond(lg) {
+            width: 20px;
+            height: 20px;
+            font-size: 14px;
+          }
+        }
+        .introContainer {
+          display: flex;
+          gap: 3px;
+          flex-wrap: wrap;
+          box-sizing: border-box;
+          .tagIntro {
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 8px 6px 6px;
+            box-sizing: border-box;
+            border-radius: 12px;
+            color: #fff;
+            background-color: #748670;
+            font-size: 11px;
+            letter-spacing: 1px;
+            @include respond(sm) {
+              letter-spacing: 1px;
+              font-size: 12px;
+            }
+            @include respond(lg) {
+              letter-spacing: 2px;
+              font-size: 12px;
+            }
           }
         }
       }

@@ -55,8 +55,8 @@ function App() {
       <Experience id="experience" ref={sectionRefs.experience} />
       <Works_8 id="works" ref={sectionRefs.works_8} />
       <Works_9 id="works" ref={sectionRefs.works_9} />
-      <Works_10 id="works" ref={sectionRefs.works_10} />
       <Works_11 id="works" ref={sectionRefs.works_11} />
+      <Works_10 id="works" ref={sectionRefs.works_10} />
       <Works_0 id="works" ref={sectionRefs.works_0} />
       <Works_1 id="works" ref={sectionRefs.works_1} />
       <Works_2 id="works" ref={sectionRefs.works_2} />
