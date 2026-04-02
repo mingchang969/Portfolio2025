@@ -139,7 +139,7 @@ const Analysis = () => (
   <>
     <div style={{ position: "relative" }}>
       <picture>
-        <source srcSet={desktopImages["flow"]} media="(min-width:768px)" />
+        <source srcSet={desktopImages["flow"]} media="(min-width:1025px)" />
         <motion.img
           className="defaultCover_2"
           src={mobileImages["flow"]}
@@ -150,7 +150,7 @@ const Analysis = () => (
         />
       </picture>
       <picture>
-        <source srcSet={desktopImages["IA"]} media="(min-width:768px)" />
+        <source srcSet={desktopImages["IA"]} media="(min-width:1025px)" />
         <motion.img
           className="defaultCover_2"
           src={mobileImages["IA"]}
