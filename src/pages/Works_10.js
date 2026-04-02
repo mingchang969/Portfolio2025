@@ -3,7 +3,7 @@ import MorphCardTabs from "../components/MorphCardTabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 
-const images = ["cover", "dashboard", "information", "processing"];
+const images = ["cover", "flow","IA","dashboard", "information", "processing"];
 const mobileImages = {};
 const desktopImages = {};
 
@@ -135,6 +135,35 @@ const tagData_3 = [
   },
 ];
 
+const Analysis = () => (
+  <>
+    <div style={{ position: "relative" }}>
+      <picture>
+        <source srcSet={desktopImages["flow"]} media="(min-width:768px)" />
+        <motion.img
+          className="defaultCover_2"
+          src={mobileImages["flow"]}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.3 }}
+        />
+      </picture>
+      <picture>
+        <source srcSet={desktopImages["IA"]} media="(min-width:768px)" />
+        <motion.img
+          className="defaultCover_2"
+          src={mobileImages["IA"]}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.3 }}
+        />
+      </picture>
+    </div>
+  </>
+);
+
 const Dashboard = () => (
   <>
     <div style={{ position: "relative" }}>
@@ -256,6 +285,12 @@ const Processing = () => (
 );
 
 const tabs = [
+    {
+    id: "Analysis",
+    title: "流程/功能/架構",
+    content: " 先列出使用者流程，再思考拆解功能需求為何，並整合建立資訊架構",
+    component: <Analysis />,
+  },
   {
     id: "changDashboard",
     title: "異動總覽",
