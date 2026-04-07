@@ -450,7 +450,7 @@ const Works_1 = forwardRef(({ id }, ref) => {
           <div className="tabContainer_">
             <Reveal direction="left" delay={0}>
               <div className="title">
-                <span>發想與設計</span>
+                <span>發想與定義</span>
                 <p>Think & Design</p>
               </div>
             </Reveal>

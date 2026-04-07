@@ -3,8 +3,52 @@ import MorphCardTabs from "../components/MorphCardTabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 import { ReactComponent as Logo } from "../images/product_logo.svg";
-//
+
+const contentImages = ["cover", "flow2","IA2"];
+const mobileContentImages = {};
+const desktopContentImages = {};
+
+contentImages.forEach((name) => {
+  mobileContentImages[name] = `/asset/product_${name}_M.png`;
+  desktopContentImages[name] = `/asset/product_${name}_D.png`;
+});
+
+const Analysis = () => (
+  <>
+    <div style={{ position: "relative" }}>
+      <picture>
+        <source srcSet={desktopContentImages["flow2"]} media="(min-width:1025px)" />
+        <motion.img
+          className="defaultCover_2"
+          src={mobileContentImages["flow2"]}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.3 }}
+        />
+      </picture>
+      <picture>
+        <source srcSet={desktopContentImages["IA2"]} media="(min-width:1025px)" />
+        <motion.img
+          className="defaultCover_2"
+          src={mobileContentImages["IA2"]}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -40 }}
+          transition={{ duration: 0.3 }}
+        />
+      </picture>
+    </div>
+  </>
+);
+
 const tabs = [
+      {
+    id: "Analysis_",
+    title: "流程/功能/架構",
+    content: " 先列出使用者流程，再思考拆解功能需求為何，並整合建立資訊架構",
+    component: <Analysis />,
+  },
   {
     id: "lobby",
     title: "大廳",
@@ -120,7 +164,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
           <div className="contentContainer">
             <Reveal direction="left" delay={0.4}>
               <div>
-                {activeTab ? (
+                {activeTab ? activeTab.image?(
                   <div className="frame">
                     {images.map((name) => (
                       <picture key={name}>
@@ -234,6 +278,8 @@ const Works_2 = forwardRef(({ id }, ref) => {
                       alt="frame overlay"
                     />
                   </div>
+                ) :(
+                  activeTab.component
                 ) : (
                   /* 💤 沒選取時顯示封面照 */
                   <motion.img

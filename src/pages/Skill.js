@@ -39,7 +39,7 @@ const Skill = forwardRef(({ id }, ref) => {
               </div>
             </Reveal>
             <Reveal direction="left" delay={0.6}>
-              <div className="content">Figma XD</div>
+              <div className="content">Figma RWD</div>
             </Reveal>
           </div>
           <div className="item">
@@ -70,11 +70,11 @@ const Skill = forwardRef(({ id }, ref) => {
                 </div>
                 x
                 <div className="outlineText">
-                  設<br />計
+                  觀<br />察
                 </div>
                 x
                 <div className="outlineText">
-                  美<br />感
+                  設<br />計
                 </div>
                 x
                 <div className="outlineText">
