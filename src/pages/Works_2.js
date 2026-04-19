@@ -3,8 +3,9 @@ import MorphCardTabs from "../components/MorphCardTabs";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 import { ReactComponent as Logo } from "../images/product_logo.svg";
+import { ReactComponent as Check } from "../images/Check.svg";
 
-const contentImages = ["cover", "flow2","IA2"];
+const contentImages = ["cover", "flow2", "IA2"];
 const mobileContentImages = {};
 const desktopContentImages = {};
 
@@ -43,7 +44,7 @@ const Analysis = () => (
 );
 
 const tabs = [
-      {
+  {
     id: "Analysis_",
     title: "流程/功能/架構",
     content: " 先列出使用者流程，再思考拆解功能需求為何，並整合建立資訊架構",
@@ -55,6 +56,13 @@ const tabs = [
     content: "提供一個平台，網羅地標的社團，以分類和關鍵字快速找到喜歡的主題",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_lobby_uci7si.mp4",
+    card:
+      [
+        { label: "problem", text: ["使用者進來要做什麼？"] },
+        { label: "choice", text: ["地圖包", "貼文流"], checked: 1 },
+        { label: "reason", text: ["保留探索感和清晰地主題找尋"] },
+      ]
+
   },
   {
     id: "createClub",
@@ -62,6 +70,12 @@ const tabs = [
     content: "選主題模式來根據這季主題來競賽，或選一般模式不限主題自由創作",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_createClub_phetbp.mp4",
+    card:
+      [
+        { label: "problem", text: ["缺乏同溫內容和歸屬"] },
+        { label: "choice", text: ["頻道訂閱", "社團成員"], checked: 2 },
+        { label: "reason", text: ["有一同經營和創作凝聚力"] },
+      ]
   },
   {
     id: "exploreMap",
@@ -69,6 +83,12 @@ const tabs = [
     content: "顯示不同分類的地標點，可點擊該類標籤呈現於地圖和列表",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_exploreMap_rgaffz.mp4",
+    card:
+      [
+        { label: "problem", text: ["地圖資訊表達訴求"] },
+        { label: "choice", text: ["所有地標", "精選地標"], checked: 2 },
+        { label: "reason", text: ["精準搜尋勝於資訊完整"] },
+      ]
   },
   {
     id: "label",
@@ -76,6 +96,12 @@ const tabs = [
     content: "以不同顏色和圖示來客製不同標題的標籤，讓視覺紹上一目瞭然",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_label_mqwskh.mp4",
+    card:
+      [
+        { label: "problem", text: ["辨識度低和分類雜亂"] },
+        { label: "choice", text: ["客製標籤", "預設標籤"], checked: 1 },
+        { label: "reason", text: ["較符合社團制核心和彈性"] },
+      ]
   },
   {
     id: "addPin",
@@ -83,6 +109,12 @@ const tabs = [
     content: "透過關鍵字搜尋或地圖釘選來新增地標，而地標資訊之後也可再編輯",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_addPin_osz1gs.mp4",
+    card:
+      [
+        { label: "problem", text: ["標地標流程要如何起手"] },
+        { label: "choice", text: ["要填完表單", "免填完新增"], checked: 2 },
+        { label: "reason", text: ["避免一時想不到的中斷感"] },
+      ]
   },
   {
     id: "infoCard",
@@ -90,6 +122,12 @@ const tabs = [
     content: "以圖鑑資訊卡的樣式，網羅大家踩該點分享的照片和心得",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_infoCard_qqqbc1.mp4",
+    card:
+      [
+        { label: "problem", text: ["資訊如何吸引下一步"] },
+        { label: "choice", text: ["圖鑑式", "話題式"], checked: 1 },
+        { label: "reason", text: ["成本雖高但較吸睛且直覺"] },
+      ]
   },
   {
     id: "post",
@@ -97,6 +135,12 @@ const tabs = [
     content: "即時瀏覽最近有什麼新貼文或新地標，快速看見大家的活動和分享",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_post_c4txj5.mp4",
+    card:
+      [
+        { label: "problem", text: ["地標內容的曝光與黏著度"] },
+        { label: "choice", text: ["貼文串", "地圖小卡"], checked: 1 },
+        { label: "reason", text: ["時間流帶來互動和時事感"] },
+      ]
   },
   {
     id: "ranking",
@@ -104,6 +148,12 @@ const tabs = [
     content: "透過排行模式參閱最新或最熱門的地點是什麼",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_ranking_vadfis.mp4",
+    card:
+      [
+        { label: "problem", text: ["使用者缺乏動機和熱度蹭"] },
+        { label: "choice", text: ["系統推廣", "排行榜"], checked: 2 },
+        { label: "reason", text: ["營造話題感和群體影響力"] },
+      ]
   },
 ];
 
@@ -120,7 +170,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
   const [active, setActive] = useState(null);
   const activeTab = tabs.find((tab) => tab.id === active);
 
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1025);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
     const isDesktopDetect = () => {
@@ -144,8 +194,12 @@ const Works_2 = forwardRef(({ id }, ref) => {
           <div className="tabContainer">
             <Reveal direction="left" delay={0}>
               <div className="title">
-                <span>產品與特色</span>
-                <p>Product Feature</p>
+                {!activeTab || isDesktop ?
+                  <>
+                    <span>產品與特色</span>
+                    <p>Product Feature</p>
+                  </> :
+                  null}
               </div>
             </Reveal>
             {isDesktop ? (
@@ -161,11 +215,12 @@ const Works_2 = forwardRef(({ id }, ref) => {
             ) : null}
           </div>
 
-          <div className="contentContainer">
+          <div className="contentContainer" style={(isDesktop && activeTab && activeTab.image) ? { paddingRight: "8rem" } : null}>
             <Reveal direction="left" delay={0.4}>
               <div>
-                {activeTab ? activeTab.image?(
+                {activeTab ? activeTab.image ? (
                   <div className="frame">
+
                     {images.map((name) => (
                       <picture key={name}>
                         <source
@@ -178,7 +233,24 @@ const Works_2 = forwardRef(({ id }, ref) => {
                           alt=""
                         />
                       </picture>
-                    ))}
+                    ))
+                    }
+                    < div className="infoCardContainer">
+                      {activeTab?.card?.map((item, index) => (
+                        <Reveal key={item.label} direction="left" delay={index * 0.2}>
+                          <div className="card">
+                            <div className="title">{item.label === "problem" ? "問題" : item.label === "choice" ? "抉擇" : "原因"}</div>
+                            <div className="contents">{item.text.map((t, index) =>
+                              <div key={index} style={{ opacity: (item.label === "choice" && item.checked !== index + 1) ? 0.5 : 1 }} className="content">
+                                {t}{item.checked === index + 1 ? <Check style={{ position: "absolute" }} /> : ""}
+                              </div>
+                            )}</div>
+                          </div>
+                        </Reveal>
+                      )
+                      )}
+                    </div >
+
                     <div className="frameMask">
                       {/* 🔥 螢幕亮起動畫層 */}
                       <AnimatePresence mode="wait">
@@ -278,7 +350,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                       alt="frame overlay"
                     />
                   </div>
-                ) :(
+                ) : (
                   activeTab.component
                 ) : (
                   /* 💤 沒選取時顯示封面照 */
@@ -295,6 +367,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                 )}
               </div>
             </Reveal>
+
           </div>
 
           {!isDesktop ? (
@@ -311,8 +384,8 @@ const Works_2 = forwardRef(({ id }, ref) => {
             </div>
           ) : null}
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 });
 
