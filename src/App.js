@@ -53,15 +53,15 @@ function App() {
       <About id="about" ref={sectionRefs.about} />
       <Skill id="skill" ref={sectionRefs.skill} />
       <Experience id="experience" ref={sectionRefs.experience} />
-      <Works_8 id="works" ref={sectionRefs.works_8} />
-      <Works_9 id="works" ref={sectionRefs.works_9} />
-      <Works_10 id="works" ref={sectionRefs.works_10} />
-      <Works_11 id="works" ref={sectionRefs.works_11} />
       <Works_0 id="works" ref={sectionRefs.works_0} />
       <Works_1 id="works" ref={sectionRefs.works_1} />
       <Works_2 id="works" ref={sectionRefs.works_2} />
       <Works_3 id="works" ref={sectionRefs.works_3} />
       <Works_4 id="works" ref={sectionRefs.works_4} />
+      <Works_8 id="works" ref={sectionRefs.works_8} />
+      <Works_9 id="works" ref={sectionRefs.works_9} />
+      <Works_10 id="works" ref={sectionRefs.works_10} />
+      <Works_11 id="works" ref={sectionRefs.works_11} />
       <Works_5 id="works" ref={sectionRefs.works_5} />
       <Works_6 id="works" ref={sectionRefs.works_6} />
       <Works_7 id="works" ref={sectionRefs.works_7} />
