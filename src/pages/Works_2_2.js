@@ -167,6 +167,17 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
   const loadingRef = useRef(null);
   const loadingFillRef = useRef(null);
 
+  const handleMobileClick = () => {
+    // 1. 先建立一個空白的分頁（必須在點擊瞬間同步執行）
+    const newWindow = window.open('', '_blank');
+
+    if (newWindow) {
+      newWindow.opener = null; // 提升安全性
+      // 2. 再將目標網址塞入該分頁
+      newWindow.location.href = 'https://web.app';
+    }
+  };
+
   return (
     <div id={id} ref={ref}>
       <div className="worksContainer">
@@ -196,8 +207,11 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
             ) : null}
             {isDesktop || (!isDesktop && !activeTab) ?
               <Reveal direction="left" delay={0} >
-                <div style={!isDesktop && { width: "100%", display: "flex", justifyContent: "center" }}>
-                  <div style={isDesktop ? { marginTop: "3.5rem" } : { marginTop: "0.5rem" }} className="linkButton" onClick={() => { window.open('https://pinlogue-92255.web.app/home', '_blank'); }}> 網站連結➡︎</div>
+                <div style={!isDesktop && { width: "100%", display: "flex", justifyContent: "center", zIndex: "999" }}>
+                  <div style={isDesktop ? { marginTop: "3.5rem" } : { marginTop: "0.5rem" }} className="linkButton"
+                    onClick={() => { window.open('https://pinlogue-92255.web.app/home', '_blank'); }}
+                    onTouchStart={() => { window.open('https://pinlogue-92255.web.app/home', '_blank'); }}
+                  > 網站連結➡︎</div>
                 </div>
               </Reveal> :
               null
@@ -346,7 +360,7 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
                   /* 💤 沒選取時顯示封面照 */
                   <motion.img
                     key="defaultCover"
-                    style={{  maxWidth: !isDesktop ? "400px" : "650px" }}
+                    style={{ maxWidth: !isDesktop ? "400px" : "650px" }}
                     src="/asset/product_cover_3.png"
                     className="defaultCover_2"
                     alt="defaultCover"
