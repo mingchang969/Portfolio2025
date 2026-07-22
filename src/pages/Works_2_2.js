@@ -194,13 +194,15 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
                 </div>
               </Reveal>
             ) : null}
-            <Reveal direction="left" delay={0}>
-              <div className="title">
-                <>
-                  <div style={{ marginTop: "3.5rem" }} className="linkButton" onClick={() => { window.open('https://pinlogue-92255.web.app/home', '_blank'); }}> 網站連結⬇︎</div>
-                </>
-              </div>
-            </Reveal>
+            {isDesktop || (!isDesktop && !activeTab) ?
+              <Reveal direction="left" delay={0} >
+                <div style={!isDesktop && { width: "100%", display: "flex", justifyContent: "center" }}>
+                  <div style={isDesktop ? { marginTop: "3.5rem" } : { marginTop: "0.5rem" }} className="linkButton" onClick={() => { window.open('https://pinlogue-92255.web.app/home', '_blank'); }}> 網站連結➡︎</div>
+                </div>
+              </Reveal> :
+              null
+            }
+
           </div>
 
           <div className="contentContainer" style={(isDesktop && activeTab && activeTab.image) ? { paddingRight: "8rem" } : null}>
@@ -344,7 +346,7 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
                   /* 💤 沒選取時顯示封面照 */
                   <motion.img
                     key="defaultCover"
-                    style={{ scale: isDesktop ? "0.8" : "1.1" }}
+                    style={{  maxWidth: !isDesktop ? "400px" : "650px" }}
                     src="/asset/product_cover_3.png"
                     className="defaultCover_2"
                     alt="defaultCover"
