@@ -1431,6 +1431,22 @@ img {
     max-height: 932px;
   }
 
+  .linkButton {
+    width: fit-content;
+    padding: 0.4rem 0.5rem 0.4rem 0.7rem;
+    background-color: #748670;
+    color: #fff;
+    border-radius: 12px;
+    letter-spacing: 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #546850;
+      transform: scale(1.05)
+    }
+  }
+
   .worksContainer {
     width: 100%;
     height: 100%;

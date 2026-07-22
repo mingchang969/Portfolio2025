@@ -71,7 +71,7 @@ const tabs = [
     content: "避免太多的分類，將功能列的貼文串和排行榜拿掉，自然融入內頁裡面",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621576/product_marker2_mrhmga.mp4",
-      
+
     card:
       [
         { label: "problem", text: ["進來地圖第一眼的焦點是"] },
@@ -85,7 +85,7 @@ const tabs = [
     content: "讓零散標點有故事感，將地標用線串起，淺顯易懂出遊走脈絡",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621577/product_trip2_u0vbyr.mp4",
-      
+
     card:
       [
         { label: "problem", text: ["如何避免流於只是地圖工具"] },
@@ -99,7 +99,7 @@ const tabs = [
     content: "新增裁切功能，封面圖也可以從圖庫來選擇，也可個別刪除",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621575/product_edit2_qpa490.mp4",
-      
+
     card:
       [
         { label: "problem", text: ["以技術面最適合剛起步的是"] },
@@ -113,7 +113,7 @@ const tabs = [
     content: "為增添與別網站的黏著度，新增可以別站地圖連結快速匯入，",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621574/product_addMarker2_s83whc.mp4",
-      
+
     card:
       [
         { label: "problem", text: ["如何方便快速匯入地標"] },
@@ -127,7 +127,7 @@ const tabs = [
     content: "為讓紀錄和分享更加直覺，以簡單點選即可連線成行",
     image:
       "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621575/product_addTrip2_x20t2p.mp4",
-      
+
     card:
       [
         { label: "problem", text: ["如何即時分享當下軌跡"] },
@@ -194,6 +194,13 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
                 </div>
               </Reveal>
             ) : null}
+            <Reveal direction="left" delay={0}>
+              <div className="title">
+                <>
+                  <div style={{ marginTop: "3.5rem" }} className="linkButton" onClick={() => { window.open('https://pinlogue-92255.web.app/home', '_blank'); }}> 網站連結⬇︎</div>
+                </>
+              </div>
+            </Reveal>
           </div>
 
           <div className="contentContainer" style={(isDesktop && activeTab && activeTab.image) ? { paddingRight: "8rem" } : null}>
@@ -337,7 +344,7 @@ const Works_2_2 = forwardRef(({ id }, ref) => {
                   /* 💤 沒選取時顯示封面照 */
                   <motion.img
                     key="defaultCover"
-                    style={{scale:isDesktop?"0.8":"1.1"}}
+                    style={{ scale: isDesktop ? "0.8" : "1.1" }}
                     src="/asset/product_cover_3.png"
                     className="defaultCover_2"
                     alt="defaultCover"
