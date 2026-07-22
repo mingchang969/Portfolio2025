@@ -7,6 +7,8 @@ import Experience from "./pages/Experience";
 import Works_0 from "./pages/Works_0";
 import Works_1 from "./pages/Works_1";
 import Works_2 from "./pages/Works_2";
+import Works_2_1 from "./pages/Works_2_1";
+import Works_2_2 from "./pages/Works_2_2";
 import Works_3 from "./pages/Works_3";
 import Works_4 from "./pages/Works_4";
 import Works_5 from "./pages/Works_5";
@@ -29,6 +31,8 @@ function App() {
     works_0: useRef(),
     works_1: useRef(),
     works_2: useRef(),
+    works_2_1: useRef(),
+    works_2_2: useRef(),
     works_3: useRef(),
     works_4: useRef(),
     works_5: useRef(),
@@ -56,12 +60,14 @@ function App() {
       <Works_0 id="works" ref={sectionRefs.works_0} />
       <Works_1 id="works" ref={sectionRefs.works_1} />
       <Works_2 id="works" ref={sectionRefs.works_2} />
+      <Works_2_1 id="works" ref={sectionRefs.works_2_1} />
+      <Works_2_2 id="works" ref={sectionRefs.works_2_2} />
       <Works_3 id="works" ref={sectionRefs.works_3} />
-      <Works_4 id="works" ref={sectionRefs.works_4} />
       <Works_8 id="works" ref={sectionRefs.works_8} />
       <Works_9 id="works" ref={sectionRefs.works_9} />
       <Works_10 id="works" ref={sectionRefs.works_10} />
       <Works_11 id="works" ref={sectionRefs.works_11} />
+      <Works_4 id="works" ref={sectionRefs.works_4} />
       <Works_5 id="works" ref={sectionRefs.works_5} />
       <Works_6 id="works" ref={sectionRefs.works_6} />
       <Works_7 id="works" ref={sectionRefs.works_7} />

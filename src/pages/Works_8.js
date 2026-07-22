@@ -31,7 +31,7 @@ const Works_0 = forwardRef(({ id }, ref) => {
             </Reveal>
             <Reveal direction="left" delay={0.2}>
               <div className="title">
-                I.　<span>航班異動系統</span> <br /><b>-Wireframe-</b>
+                II.　<span>航班異動系統</span> <br /><b>-Wireframe-</b>
               </div>
             </Reveal>
           </div>

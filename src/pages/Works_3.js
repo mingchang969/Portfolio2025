@@ -224,7 +224,7 @@ images.forEach((name) => {
 });
 
 const Works_3 = forwardRef(({ id }, ref) => {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("dessert");
   const activeTab = tabs.find((tab) => tab.id === active);
 
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1025);

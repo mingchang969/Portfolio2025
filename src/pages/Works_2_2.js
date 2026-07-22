@@ -1,11 +1,11 @@
 import React, { forwardRef, useState, useEffect, useRef } from "react";
 import MorphCardTabs from "../components/MorphCardTabs";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, scale } from "framer-motion";
 import Reveal from "../components/Reveal";
 import { ReactComponent as Logo } from "../images/product_logo.svg";
 import { ReactComponent as Check } from "../images/Check.svg";
 
-const contentImages = ["cover", "flow2", "IA2"];
+const contentImages = ["cover", "flow3", "IA3"];
 const mobileContentImages = {};
 const desktopContentImages = {};
 
@@ -18,10 +18,10 @@ const Analysis = () => (
   <>
     <div style={{ position: "relative" }}>
       <picture>
-        <source srcSet={desktopContentImages["flow2"]} media="(min-width:1025px)" />
+        <source srcSet={desktopContentImages["flow3"]} media="(min-width:1025px)" />
         <motion.img
           className="defaultCover_2"
-          src={mobileContentImages["flow2"]}
+          src={mobileContentImages["flow3"]}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
@@ -29,10 +29,10 @@ const Analysis = () => (
         />
       </picture>
       <picture>
-        <source srcSet={desktopContentImages["IA2"]} media="(min-width:1025px)" />
+        <source srcSet={desktopContentImages["IA3"]} media="(min-width:1025px)" />
         <motion.img
           className="defaultCover_2"
-          src={mobileContentImages["IA2"]}
+          src={mobileContentImages["IA3"]}
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
@@ -45,114 +45,94 @@ const Analysis = () => (
 
 const tabs = [
   {
-    id: "Analysis_",
+    id: "Analysis_after",
     title: "流程/功能/架構",
-    content: " 先列出使用者流程，再思考拆解功能需求為何，並整合建立資訊架構",
+    content: " 延續使用者流程，並取捨功能需求，讓其精簡又一體性。 ",
     component: <Analysis />,
   },
   {
-    id: "lobby",
+    id: "lobby_after",
     title: "大廳",
-    content: "提供一個平台，網羅地標的社團，以分類和關鍵字快速找到喜歡的主題",
+    content: "為元件方便跨裝置，簡化分類系統面版，並調整為系統演算的分類",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_lobby_uci7si.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621577/product_lobby2_tm43jw.mp4",
+
     card:
       [
-        { label: "problem", text: ["使用者進來要做什麼？"] },
-        { label: "choice", text: ["地圖包", "貼文流"], checked: 1 },
-        { label: "reason", text: ["保留探索感和清晰地主題找尋"] },
+        { label: "problem", text: ["想給使用者的資訊呈現是"] },
+        { label: "choice", text: ["多樣功能", "精簡自動"], checked: 2 },
+        { label: "reason", text: ["適用剛起步的網站和使用者"] },
       ]
 
   },
   {
-    id: "createClub",
-    title: "創建社團",
-    content: "選主題模式來根據這季主題來競賽，或選一般模式不限主題自由創作",
+    id: "marker_after",
+    title: "探索地標",
+    content: "避免太多的分類，將功能列的貼文串和排行榜拿掉，自然融入內頁裡面",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_createClub_phetbp.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621576/product_marker2_mrhmga.mp4",
+      
     card:
       [
-        { label: "problem", text: ["缺乏同溫內容和歸屬"] },
-        { label: "choice", text: ["頻道訂閱", "社團成員"], checked: 2 },
-        { label: "reason", text: ["有一同經營和創作凝聚力"] },
+        { label: "problem", text: ["進來地圖第一眼的焦點是"] },
+        { label: "choice", text: ["地圖本質", "社群圖文"], checked: 1 },
+        { label: "reason", text: ["專注展現作者的創作與傳達"] },
       ]
   },
   {
-    id: "exploreMap",
-    title: "探索地圖",
-    content: "顯示不同分類的地標點，可點擊該類標籤呈現於地圖和列表",
+    id: "trip_after",
+    title: "探索行程",
+    content: "讓零散標點有故事感，將地標用線串起，淺顯易懂出遊走脈絡",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_exploreMap_rgaffz.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621577/product_trip2_u0vbyr.mp4",
+      
     card:
       [
-        { label: "problem", text: ["地圖資訊表達訴求"] },
-        { label: "choice", text: ["所有地標", "精選地標"], checked: 2 },
-        { label: "reason", text: ["精準搜尋勝於資訊完整"] },
+        { label: "problem", text: ["如何避免流於只是地圖工具"] },
+        { label: "choice", text: ["行程脈絡", "專注地標"], checked: 1 },
+        { label: "reason", text: ["在競品間做出優勢與故事感"] },
       ]
   },
   {
-    id: "label",
-    title: "標籤",
-    content: "以不同顏色和圖示來客製不同標題的標籤，讓視覺紹上一目瞭然",
+    id: "edit_after",
+    title: "編輯地標",
+    content: "新增裁切功能，封面圖也可以從圖庫來選擇，也可個別刪除",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_label_mqwskh.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621575/product_edit2_qpa490.mp4",
+      
     card:
       [
-        { label: "problem", text: ["辨識度低和分類雜亂"] },
-        { label: "choice", text: ["客製標籤", "預設標籤"], checked: 1 },
-        { label: "reason", text: ["較符合社團制核心和彈性"] },
+        { label: "problem", text: ["以技術面最適合剛起步的是"] },
+        { label: "choice", text: ["純圖庫", "貼文留言"], checked: 1 },
+        { label: "reason", text: ["簡易和可控，讓流量不會過載"] },
       ]
   },
   {
-    id: "addPin",
-    title: "新增標點",
-    content: "透過關鍵字搜尋或地圖釘選來新增地標，而地標資訊之後也可再編輯",
+    id: "addPin_after",
+    title: "新增地標",
+    content: "為增添與別網站的黏著度，新增可以別站地圖連結快速匯入，",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_addPin_osz1gs.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621574/product_addMarker2_s83whc.mp4",
+      
     card:
       [
-        { label: "problem", text: ["標地標流程要如何起手"] },
-        { label: "choice", text: ["要填完表單", "免填完新增"], checked: 2 },
-        { label: "reason", text: ["避免一時想不到的中斷感"] },
+        { label: "problem", text: ["如何方便快速匯入地標"] },
+        { label: "choice", text: ["自建系統", "外站導入"], checked: 2 },
+        { label: "reason", text: ["減少成本並增加與外站相依性"] },
       ]
   },
   {
-    id: "infoCard",
-    title: "資訊卡",
-    content: "以圖鑑資訊卡的樣式，網羅大家踩該點分享的照片和心得",
+    id: "addTrip_after",
+    title: "新增行程",
+    content: "為讓紀錄和分享更加直覺，以簡單點選即可連線成行",
     image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_infoCard_qqqbc1.mp4",
+      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/v1784621575/product_addTrip2_x20t2p.mp4",
+      
     card:
       [
-        { label: "problem", text: ["資訊如何吸引下一步"] },
-        { label: "choice", text: ["圖鑑式", "話題式"], checked: 1 },
-        { label: "reason", text: ["成本雖高但較吸睛且直覺"] },
-      ]
-  },
-  {
-    id: "post",
-    title: "貼文串",
-    content: "即時瀏覽最近有什麼新貼文或新地標，快速看見大家的活動和分享",
-    image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_post_c4txj5.mp4",
-    card:
-      [
-        { label: "problem", text: ["地標內容的曝光與黏著度"] },
-        { label: "choice", text: ["貼文串", "地圖小卡"], checked: 1 },
-        { label: "reason", text: ["時間流帶來互動和時事感"] },
-      ]
-  },
-  {
-    id: "ranking",
-    title: "排行榜",
-    content: "透過排行模式參閱最新或最熱門的地點是什麼",
-    image:
-      "https://res.cloudinary.com/dnjebsotq/video/upload/q_auto,f_mp4/product_ranking_vadfis.mp4",
-    card:
-      [
-        { label: "problem", text: ["使用者缺乏動機和熱度蹭"] },
-        { label: "choice", text: ["系統推廣", "排行榜"], checked: 2 },
-        { label: "reason", text: ["營造話題感和群體影響力"] },
+        { label: "problem", text: ["如何即時分享當下軌跡"] },
+        { label: "choice", text: ["快點式", "列表式"], checked: 1 },
+        { label: "reason", text: ["透過地圖的點串起，直覺快速"] },
       ]
   },
 ];
@@ -166,8 +146,8 @@ images.forEach((name) => {
   desktopImages[name] = require(`../images/desktop/works/${name}.png`);
 });
 
-const Works_2 = forwardRef(({ id }, ref) => {
-  const [active, setActive] = useState("Analysis_");
+const Works_2_2 = forwardRef(({ id }, ref) => {
+  const [active, setActive] = useState("Analysis_after");
   const activeTab = tabs.find((tab) => tab.id === active);
 
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
@@ -194,10 +174,10 @@ const Works_2 = forwardRef(({ id }, ref) => {
           <div className="tabContainer">
             <Reveal direction="left" delay={0}>
               <div className="title">
-                {!activeTab || activeTab.id === "Analysis_" || isDesktop ?
+                {!activeTab || activeTab.id === "Analysis_after" || isDesktop ?
                   <>
-                    <span>改版前</span>
-                    <p>Before Feature</p>
+                    <span>改版後</span>
+                    <p>After Feature</p>
                   </> :
                   null}
               </div>
@@ -209,6 +189,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                     data={tabs}
                     active={active}
                     setActive={setActive}
+                    clickOut={false}
                   />
                 </div>
               </Reveal>
@@ -251,7 +232,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                       )}
                     </div >
 
-                    <div className="frameMask">
+                    <div className="frameMask_">
                       {/* 🔥 螢幕亮起動畫層 */}
                       <AnimatePresence mode="wait">
                         <motion.div
@@ -328,7 +309,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                       <div className="preloadingContainer">
                         <img
                           ref={posterRef}
-                          className="poster"
+                          className="poster_"
                           src={`/asset/product_${activeTab.id}.png`}
                         />
                         <div ref={loadingRef} className="loading">
@@ -356,7 +337,8 @@ const Works_2 = forwardRef(({ id }, ref) => {
                   /* 💤 沒選取時顯示封面照 */
                   <motion.img
                     key="defaultCover"
-                    src="/asset/product_cover.png"
+                    style={{scale:isDesktop?"0.8":"1.1"}}
+                    src="/asset/product_cover_3.png"
                     className="defaultCover_2"
                     alt="defaultCover"
                     initial={{ opacity: 0, y: 40 }}
@@ -378,6 +360,7 @@ const Works_2 = forwardRef(({ id }, ref) => {
                     data={tabs}
                     active={active}
                     setActive={setActive}
+                    clickOut={false}
                   />
                 </div>
               </Reveal>
@@ -389,4 +372,4 @@ const Works_2 = forwardRef(({ id }, ref) => {
   );
 });
 
-export default Works_2;
+export default Works_2_2;

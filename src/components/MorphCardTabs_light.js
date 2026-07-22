@@ -2,14 +2,17 @@ import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./MorphCardTabs.css";
 
-export default function MorphCardTabs({ data, active, setActive }) {
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!e.target.closest(".morph-card_L")) setActive(null);
-    };
-    window.addEventListener("click", handleClickOutside);
-    return () => window.removeEventListener("click", handleClickOutside);
-  }, [setActive]);
+export default function MorphCardTabs({ data, active, setActive, clickOut = true }) {
+
+  if (clickOut) {
+    useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (!e.target.closest(".morph-card_L")) setActive(null);
+      };
+      window.addEventListener("click", handleClickOutside);
+      return () => window.removeEventListener("click", handleClickOutside);
+    }, [setActive]);
+  }
 
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
@@ -37,7 +40,7 @@ export default function MorphCardTabs({ data, active, setActive }) {
               initial={false}
               onClick={(e) => {
                 e.stopPropagation();
-                setActive(isActive ? null : tab.id);
+                setActive(!clickOut ? tab.id : isActive ? null : tab.id);
               }}
             >
               <motion.h3>{tab.title}</motion.h3>

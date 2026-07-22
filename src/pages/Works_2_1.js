@@ -3,13 +3,13 @@ import MorphCardTabs from "../components/MorphCardTabs_light";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 
-const images = ["cover", "motivation", "researchA", "researchB"];
+const images = ["cover"];
 const mobileImages = {};
 const desktopImages = {};
 
 images.forEach((name) => {
-  mobileImages[name] = `/asset/think_${name}_M.png`;
-  desktopImages[name] = `/asset/think_${name}_D.png`;
+  mobileImages[name] = `/asset/think_${name}_M_4.png`;
+  desktopImages[name] = `/asset/think_${name}_D_4.png`;
 });
 
 const images_ = ["leaf1", "leaf1_", "flower", "flower_"];
@@ -36,9 +36,9 @@ images_.forEach((name) => {
   ] = require(`../images/desktop/works/solutions/${name}.png`);
 });
 
-const Motivation = () => (
+const IterationReason = () => (
   <motion.div
-    key="motivation"
+    key="iterationReason"
     className="content_motivation"
     initial={{ opacity: 0, y: 40 }}
     animate={{ opacity: 1, y: 0 }}
@@ -47,71 +47,27 @@ const Motivation = () => (
   >
     <div className="context_container">
       <div className="context">
-        每當空閑不知道去哪裡的時候，打開地圖自己東找西找，最終還是沒有一個結果。
+        經運行後，考量起創因適合先以低成本、簡單化去試水溫，以便之後開發者因輕量而更加彈性，不因資源限制和龐大架構而重建困難
         <br />
         <br />
-        如果一個想法，當我打開地圖，就有許多行家都先幫你網羅好的景點，會不會快很多呢？
+        原產品流於社群網站模式，但設計原意是 地標分享 與 軌跡日誌，所以重新聚焦功能為行程脈絡，將每個點用脈絡線去串連起來
         <br />
         <br />
-        或許還可以創建各種主題的地圖，並統整一個平台，讓大家互相探索和紀錄，創造更多討論和紀念的可能性。
+        故立下此三大重導方針 1.低成本 2.串連化 3.簡單化
       </div>
     </div>
     <div className="framer">
       <picture>
         <source
-          srcSet={desktopImages["motivation"]}
+          srcSet={desktopImages["cover"]}
           media="(min-width:1025px)"
         />
-        <img src={mobileImages["motivation"]} />
+        <img src={mobileImages["cover"]} />
       </picture>
     </div>
   </motion.div>
 );
-const Research = () => (
-  <motion.div
-    key="research"
-    className="content_research"
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -40 }}
-    transition={{ duration: 0.3 }}
-  >
-    <div className="framers">
-      <div className="framer">
-        <picture>
-          <source
-            srcSet={desktopImages["researchA"]}
-            media="(min-width:1025px)"
-          />
-          <img src={mobileImages["researchA"]} />
-        </picture>
-      </div>
-      <div className="framer">
-        <picture>
-          <source
-            srcSet={desktopImages["researchB"]}
-            media="(min-width:1025px)"
-          />
-          <img src={mobileImages["researchB"]} />
-        </picture>
-      </div>
-    </div>
-
-    <div className="context_container">
-      <div className="context">
-        <b>Google Map：</b>
-        <br />
-        只有一個共同的地圖，可以呈現所有使用者的點，資源內容詳細，但太多雜沒有主題分類
-        <br />
-        <br />
-        <b>My Maps：</b>
-        <br />
-        有分別獨立的地圖，可以自我創建，有主題性和易讀性，但缺乏統整平台資源零散
-      </div>
-    </div>
-  </motion.div>
-);
-const PainPoints = () => {
+const LowerCost = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1025);
   useEffect(() => {
     const isDesktopDetect = () => {
@@ -124,7 +80,7 @@ const PainPoints = () => {
   }, []);
   return (
     <motion.div
-      key="painPoints"
+      key="lowerCost"
       className="content_painPoints"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -140,12 +96,12 @@ const PainPoints = () => {
         }
       >
         <div className="title">
-          <span>Q</span>1
+          <span>1.</span>
         </div>
         <div className="context_container">
           <div className="context">
-            <b>Google Map</b> 匯集任何人的<span>資訊大</span>
-            熔爐，可以有最詳盡的資源，但相反地無法快速找出重點，缺少主題性和歸類
+            因多圖片儲存雲端增加<span>支出</span>：
+            所有成員可傳圖→ 限制圖片編輯權
           </div>
         </div>
         <picture>
@@ -168,18 +124,16 @@ const PainPoints = () => {
         className="itemContainer"
         style={
           isDesktop
-            ? { transform: "translateX(-21%)" }
+            ? { transform: "translateX(-18%)" }
             : { transform: "translateX(0%)", flexDirection: "row-reverse" }
         }
       >
         <div className="title">
-          <span>Q</span>2
+          <span>2.</span>
         </div>
         <div className="context_container">
           <div className="context">
-            <b>My Maps</b>{" "}
-            有創作性和主題性，但僅透過共同編輯連結，零散於網路各地，缺少一個
-            <span>統整</span>和<span>曝光性</span>高的平台{" "}
+            因創作模式，需要企劃<span>人力</span>：活動情境分類→系統演算法排序
           </div>
         </div>
         {isDesktop ? (
@@ -222,12 +176,11 @@ const PainPoints = () => {
         }
       >
         <div className="title">
-          <span>Q</span>3
+          <span>3.</span>
         </div>
         <div className="context_container">
           <div className="context">
-            兩者沒有一個群組圈的感覺，儘管可以共同編輯，以文字和圖片小註解，但還是
-            <span>冰冷</span>專注實用性的清單{" "}
+            因地圖搜尋API為免費<span>資源</span>：較慢速文字搜尋→排名和系統演算為主軸
           </div>
         </div>
         {!isDesktop ? (
@@ -258,7 +211,7 @@ const PainPoints = () => {
     </motion.div>
   );
 };
-const Solutions = () => {
+const Linking = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1025);
   useEffect(() => {
     const isDesktopDetect = () => {
@@ -271,7 +224,7 @@ const Solutions = () => {
   }, []);
   return (
     <motion.div
-      key="solutions"
+      key="linking"
       className="content_solutions"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -291,12 +244,11 @@ const Solutions = () => {
         }
       >
         <div className="title">
-          <span>A</span>1
+          <span>1.</span>
         </div>
         <div className="context_container">
           <div className="context">
-            將核心從發散導向收斂，<span>少即是多</span>
-            ，技術性不高，但設計性高，透過群組化、標籤化、主題化，發揮小也是一個市場
+            地標過多 <span>零散</span>：無→新增行程模式，串起地標
           </div>
         </div>
         <picture>
@@ -324,12 +276,11 @@ const Solutions = () => {
         }
       >
         <div className="title">
-          <span>A</span>2
+          <span>2.</span>
         </div>
         <div className="context_container">
           <div className="context">
-            建立只需要一個連結的網站，讓資訊歸納又透明，吸引人們點閱或是創作，
-            <span>激發</span>一些熱情發掘新地點和引起討埨度
+            地標少點 <span>時序感</span>：無→新增 路線圖 和 導覽頁
           </div>
         </div>
         {isDesktop ? null : (
@@ -349,12 +300,11 @@ const Solutions = () => {
         }
       >
         <div className="title">
-          <span>A</span>3
+          <span>3.</span>
         </div>
         <div className="context_container">
           <div className="context">
-            群組和貼文化，好發言，易分享，同溫性，不單功能地分享地點，還有一起記錄回憶、共同探險發掘的
-            <span>歸屬感</span>
+            提供較薄弱的 <span>點子靈感</span>：無→行程分類標籤
           </div>
         </div>
         {!isDesktop ? (
@@ -408,32 +358,175 @@ const Solutions = () => {
     </motion.div>
   );
 };
+const Simplification = () => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1025);
+  useEffect(() => {
+    const isDesktopDetect = () => {
+      setIsDesktop(window.innerWidth >= 1025);
+    };
+    window.addEventListener("resize", isDesktopDetect);
+    return () => {
+      window.removeEventListener("resize", isDesktopDetect);
+    };
+  }, []);
+  return (
+    <motion.div
+      key="simplification"
+      className="content_painPoints"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -40 }}
+      transition={{ duration: 0.3 }}
+    >
+      <div
+        className="itemContainer"
+        style={
+          isDesktop
+            ? { transform: "translateX(-9%)", gap: "5px" }
+            : { transform: "translateX(0%)", gap: "11px" }
+        }
+      >
+        <div className="title">
+          <span>1.</span>
+        </div>
+        <div className="context_container">
+          <div className="context">
+            因成員內容過多會偏離<span>主軸</span>：分享貼文 與 回饋留言→ 導覽頁
+          </div>
+        </div>
+        <picture>
+          <source
+            srcSet={desktopImages_P["leaf1"]}
+            media="(min-width:1025px)"
+          />
+          <img className="leaf1 leaf-away" src={mobileImages_P["leaf1"]} />
+        </picture>
+        <picture>
+          <source
+            srcSet={desktopImages_P["flower"]}
+            media="(min-width:1025px)"
+          />
+          <img className="flower leaf-away" src={mobileImages_P["flower"]} />
+        </picture>
+      </div>
+
+      <div
+        className="itemContainer"
+        style={
+          isDesktop
+            ? { transform: "translateX(-18%)" }
+            : { transform: "translateX(0%)", flexDirection: "row-reverse" }
+        }
+      >
+        <div className="title">
+          <span>2.</span>
+        </div>
+        <div className="context_container">
+          <div className="context">
+            必要性不夠的模式<span>層級</span>：排行最新→刪掉並化為系統演算排序
+          </div>
+        </div>
+        {isDesktop ? (
+          <>
+            <picture>
+              <source
+                srcSet={desktopImages_P["leaf1_"]}
+                media="(min-width:1025px)"
+              />
+              <img
+                className="leaf1_ leaf-away"
+                src={mobileImages_P["leaf1_"]}
+              />
+            </picture>
+            <picture>
+              <source
+                srcSet={desktopImages_P["flower_"]}
+                media="(min-width:1025px)"
+              />
+              <img
+                className="flower_ leaf-away"
+                src={mobileImages_P["flower_"]}
+              />
+            </picture>
+          </>
+        ) : (
+          <img
+            className="leaf1_e leaf-away"
+            src={require("../images/mobile/works/painPoints/flower_e.png")}
+          />
+        )}
+      </div>
+
+      <div
+        className="itemContainer"
+        style={
+          isDesktop
+            ? { transform: "translateX(12%)" }
+            : { transform: "translateX(0%)" }
+        }
+      >
+        <div className="title">
+          <span>3.</span>
+        </div>
+        <div className="context_container">
+          <div className="context">
+            貼文串造成資訊和成本過於<span>龐大</span>：貼文串 →行程圖 與 導覽頁
+          </div>
+        </div>
+        {!isDesktop ? (
+          <>
+            <picture>
+              <source
+                srcSet={desktopImages_P["leaf1_"]}
+                media="(min-width:1025px)"
+              />
+              <img
+                className="leaf1_ leaf-away"
+                src={mobileImages_P["leaf1_"]}
+              />
+            </picture>
+            <picture>
+              <source
+                srcSet={desktopImages_P["flower_"]}
+                media="(min-width:1025px)"
+              />
+              <img
+                className="flower_ leaf-away"
+                src={mobileImages_P["flower_"]}
+              />
+            </picture>
+          </>
+        ) : null}
+      </div>
+    </motion.div>
+  );
+};
 
 const tabs = [
   {
-    id: "motivation",
-    title: "動機",
-    component: <Motivation />,
+    id: "iterationReason",
+    title: "原因",
+    component: <IterationReason />,
   },
   {
-    id: "research",
-    title: "資料蒐集",
-    component: <Research />,
+    id: "lowerCost",
+    title: "低成本",
+    component: <LowerCost />,
   },
   {
-    id: "painPoints",
-    title: "問題點",
-    component: <PainPoints />,
+    id: "linking",
+    title: "串連化",
+    component: <Linking />,
   },
   {
-    id: "solutions",
-    title: "解決點",
-    component: <Solutions />,
+    id: "simplification",
+    title: "簡單化",
+    component: <Simplification />,
   },
 ];
 
-const Works_1 = forwardRef(({ id }, ref) => {
-  const [active, setActive] = useState("motivation");
+const Works_2_1 = forwardRef(({ id }, ref) => {
+  const [active, setActive] = useState("iterationReason");
   const activeTab = tabs.find((tab) => tab.id === active);
 
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
@@ -455,8 +548,8 @@ const Works_1 = forwardRef(({ id }, ref) => {
           <div className="tabContainer_">
             <Reveal direction="left" delay={0}>
               <div className="title">
-                <span>發想與定義</span>
-                <p>Think & Design</p>
+                <span>重新定位</span>
+                <p>Iteration</p>
               </div>
             </Reveal>
             {isDesktop ? (
@@ -522,4 +615,4 @@ const Works_1 = forwardRef(({ id }, ref) => {
   );
 });
 
-export default Works_1;
+export default Works_2_1;

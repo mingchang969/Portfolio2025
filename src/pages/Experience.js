@@ -16,56 +16,48 @@ const Experience = forwardRef(({ id }, ref) => {
           <Reveal direction="bottom" delay={0}>
             <div className="dot">
               <div className="content">
-                <div className="title">楊梅高中</div>
-                <div className="subtitle">資訊科</div>
+                <div className="title">互動數位機台</div>
+                <div className="subtitle">畢展團隊開發</div>
               </div>
             </div>
           </Reveal>
           <Reveal direction="bottom" delay={0.2}>
             <div className="dot">
               <div className="content">
-                <div className="title">臺北科技大學</div>
-                <div className="subtitle">互動設計系</div>
+                <div className="title">智能生活App</div>
+                <div className="subtitle">公司產品開發</div>
               </div>
             </div>
           </Reveal>
           <Reveal direction="bottom" delay={0.4}>
             <div className="dot">
               <div className="content">
-                <div className="title">萬達人工智慧公司</div>
-                <div className="subtitle">UI設計師</div>
+                <div className="title">論壇後台系統</div>
+                <div className="subtitle">公司產品開發</div>
               </div>
             </div>
           </Reveal>
           <Reveal direction="bottom" delay={0.6}>
             <div className="dot">
               <div className="content">
-                <div className="title">職業訓練</div>
-                <div className="subtitle">網頁實務應用</div>
+                <div className="title">旅行嚮導</div>
+                <div className="subtitle">個人產品設計</div>
               </div>
             </div>
           </Reveal>
           <Reveal direction="bottom" delay={0.8}>
             <div className="dot">
               <div className="content">
-                <div className="title">中佑資訊公司</div>
-                <div className="subtitle">網頁視覺設計師</div>
+                <div className="title">航空異動系統</div>
+                <div className="subtitle">個人產品設計</div>
               </div>
             </div>
           </Reveal>
           <Reveal direction="bottom" delay={0.8}>
             <div className="dot">
               <div className="content">
-                <div className="title">職業訓練</div>
-                <div className="subtitle">旅遊從業人員</div>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal direction="bottom" delay={0.8}>
-            <div className="dot">
-              <div className="content">
-                <div className="title">山崎製パン会社</div>
-                <div className="subtitle">日本打工度假</div>
+                <div className="title">地標日誌</div>
+                <div className="subtitle">獨立產品開發</div>
               </div>
             </div>
           </Reveal>

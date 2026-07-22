@@ -16,13 +16,13 @@ const About = forwardRef(({ id }, ref) => {
       <div className="aboutContainer">
         <Reveal>
           <div className="context">
-            比起視覺奪目
+            － 始 於 洞 察 －
             <br />
-            更在意「機能與產品價值」
+               成 於 設 計 
             <br />
-            讓我用更全方位的思維
+               落 於 實 踐 
             <br />
-            讓設計帶給人們美好價值
+            － 終 於 價 值 －
           </div>
         </Reveal>
       </div>

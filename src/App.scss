@@ -1979,7 +1979,7 @@ img {
               position: absolute;
               z-index: 6;
               left: 1.7rem;
-              bottom: 4rem;
+              bottom: 7rem;
 
               @include respond(lg) {
                 z-index: 6;
@@ -2486,6 +2486,127 @@ img {
                 position: absolute;
                 top: 0;
                 left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 2;
+                opacity: 1;
+                filter: brightness(40%);
+                transition: opacity 0.5s ease;
+              }
+
+              .loading {
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 35%);
+                z-index: 3;
+                width: 65%;
+                text-align: center;
+                color: white;
+                font-size: 14px;
+                opacity: 1;
+                transition: opacity 0.5s ease;
+
+                .loadingBar {
+                  width: 100%;
+                  height: 5px;
+                  margin-top: 0.7rem;
+                  background: rgba(255, 255, 255, 0.3);
+                  border-radius: 3px;
+                  overflow: hidden;
+                  margin-bottom: 6px;
+
+                  .loadingFill {
+                    width: 0%;
+                    height: 100%;
+                    background: #bec94a;
+                    transition: width 0.2s linear;
+                  }
+                }
+
+                @keyframes bounce {
+                  0% {
+                    transform: translateY(0);
+                  }
+
+                  20% {
+                    transform: translateY(-6px);
+                  }
+
+                  47% {
+                    transform: translateY(0);
+                  }
+
+                  53% {
+                    transform: translateY(0);
+                  }
+
+                  80% {
+                    transform: translateY(-10px);
+                  }
+
+                  100% {
+                    transform: translateY(0);
+                  }
+                }
+              }
+            }
+          }
+
+          .frameMask_ {
+            width: 16.65rem;
+            height: 33rem;
+            position: relative;
+
+            // SVG 遮罩
+            -webkit-mask-image: url("/images/frameMask.svg");
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: cover;
+
+            mask-image: url("/images/frameMask.svg");
+            mask-repeat: no-repeat;
+            mask-size: 96%;
+            mask-position: 6px 0px;
+
+            overflow: hidden;
+
+            .video {
+              position: absolute;
+              top: -16px;
+              left: 4px;
+              width: 100%;
+              height: 105%;
+              object-fit: cover;
+              /* 影片填滿容器 */
+              display: block;
+              z-index: 1;
+            }
+
+            /* 🔥 新增這段 */
+            .screenTransition {
+              position: absolute;
+              inset: 0;
+              z-index: 2;
+              background: radial-gradient(circle at center,
+                  rgba(30, 30, 30, 1) 0%,
+                  rgba(0, 0, 0, 1) 80%);
+              pointer-events: none;
+              filter: blur(10px);
+            }
+
+            .preloadingContainer {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              background-color: transparent;
+              overflow: hidden;
+
+              .poster_ {
+                position: absolute;
+                top: -12px;
+                left: 5px;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;

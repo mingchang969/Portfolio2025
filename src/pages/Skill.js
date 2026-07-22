@@ -24,33 +24,34 @@ const Skill = forwardRef(({ id }, ref) => {
             <Reveal direction="left" delay={0}>
               <div className="icon">
                 <Icon />
-                視覺
+                UX
               </div>
             </Reveal>
             <Reveal direction="left" delay={0.2}>
-              <div className="content">PS AI PR AE</div>
+              <div className="content">User Flow.IA <br />Usability testing</div>
             </Reveal>
           </div>
           <div className="item">
             <Reveal direction="left" delay={0.4}>
               <div className="icon">
                 <Icon_ />
-                佈局
+                UI
               </div>
             </Reveal>
             <Reveal direction="left" delay={0.6}>
-              <div className="content">Figma RWD</div>
+              <div className="content">Wireframe/Prototype <br />Design system.RWD</div>
             </Reveal>
           </div>
           <div className="item">
             <Reveal direction="left" delay={0.8}>
               <div className="icon">
                 <Icon_2 />
-                程式
+                協作
               </div>
             </Reveal>
             <Reveal direction="left" delay={1}>
-              <div className="content">HTML CSS JS REACT</div>
+              <div className="content">Figma.React.Html.Css <br />
+              Product thinking</div>
             </Reveal>
           </div>
           <div className="item">
@@ -87,7 +88,7 @@ const Skill = forwardRef(({ id }, ref) => {
             <Reveal direction="left" delay={1.6}>
               <div className="icon">
                 <Icon_4 />
-                證照
+                戰力
               </div>
             </Reveal>
             <Reveal direction="left" delay={1.8}>
@@ -95,9 +96,9 @@ const Skill = forwardRef(({ id }, ref) => {
                 className="content"
                 style={{ flexDirection: "column", alignItems: "start" }}
               >
-                <div className="outlineText_">網頁設計丙級</div>
-                <div className="outlineText_">電腦軟體應用乙級</div>
-                <div className="outlineText_">工業電子丙級</div>
+                <div className="outlineText_">從0到1可落地產品</div>
+                <div className="outlineText_">實地考察的產品思維</div>
+                <div className="outlineText_">擅與工程師跨域合作</div>
               </div>
             </Reveal>
           </div>
