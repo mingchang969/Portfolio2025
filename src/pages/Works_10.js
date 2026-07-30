@@ -15,44 +15,44 @@ images.forEach((name) => {
 const tagData_1 = [
   {
     id: "emergencyState",
-    bottom: "75%",
+    bottom: "73%",
     left: "1.5%",
     context: "緊急度評分：透過系統評斷，來顯示和排序，減少人工負擔",
   },
   {
     id: "departureState",
-    bottom: "78%",
+    bottom: "76%",
     left: "6.5%",
     context: "航班行進狀態：以樣式區別，能直覺反應是否已進行",
   },
   {
     id: "changedTag",
-    bottom: "78%",
+    bottom: "76%",
     left: "14.5%",
     context: "異動標籤：以顏色和icon，快速分辨異動等級和原因",
   },
   {
     id: "timeLine",
-    bottom: "78%",
-    left: "45.5%",
+    bottom: "76%",
+    left: "40.5%",
     context: "時間軸：將輕重緩急圖像概念化，能夠直覺地概觀和比較",
   },
   {
     id: "taskState",
-    bottom: "78%",
-    left: "72.5%",
-    context: "任務狀態：系統自動分發任務，並顯示類別和是否完成",
+    bottom: "76%",
+    left: "63%",
+    context: "影響人數：直覺比較是多是少，預估人力與時間成本",
   },
   {
     id: "influenceState",
-    bottom: "78%",
-    left: "78.5%",
-    context: "影響程度：長條圖來直覺比較是多是少，預估人力與時間成本",
+    bottom: "76%",
+    left: "74.5%",
+    context: "任務進度：系統自動分發任務，顯示類別和完成進度",
   },
   {
     id: "summary",
-    bottom: "16%",
-    left: "85.5%",
+    bottom: "18%",
+    left: "35%",
     context: "總覽框：總結目前累積的多寡，有警示和協助概估的作用",
   },
 ];
@@ -61,7 +61,7 @@ const tagData_2 = [
   {
     id: "systemSummary",
     bottom: "80%",
-    left: "17.5%",
+    left: "1.5%",
     context: "系統總結：第一資訊一律置左或上，先概觀再決定下一步",
   },
   {
@@ -99,8 +99,8 @@ const tagData_2 = [
 const tagData_3 = [
   {
     id: "operationWarming",
-    bottom: "83%",
-    left: "17.5%",
+    bottom: "84%",
+    left: "1.5%",
     context: "操作警告：重要資訊一律置左或上，第一線的提前告知",
   },
   {
