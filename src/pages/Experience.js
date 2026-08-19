@@ -53,11 +53,19 @@ const Experience = forwardRef(({ id }, ref) => {
               </div>
             </div>
           </Reveal>
-          <Reveal direction="bottom" delay={0.8}>
+          <Reveal direction="bottom" delay={1}>
             <div className="dot">
               <div className="content">
                 <div className="title">地標日誌</div>
                 <div className="subtitle">獨立產品開發</div>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal direction="bottom" delay={1.2}>
+            <div className="dot">
+              <div className="content">
+                <div className="title">專案管理系統</div>
+                <div className="subtitle">個人產品設計</div>
               </div>
             </div>
           </Reveal>

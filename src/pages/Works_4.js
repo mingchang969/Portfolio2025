@@ -31,7 +31,7 @@ const Works_4 = forwardRef(({ id }, ref) => {
             </Reveal>
             <Reveal direction="left" delay={0.2}>
               <div className="title">
-                III.　<span>旅行嚮導</span> <br /><b>GoTogether</b>
+                IV.　<span>旅行嚮導</span> <br /><b>GoTogether</b>
               </div>
             </Reveal>
           </div>

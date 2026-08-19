@@ -18,6 +18,10 @@ import Works_8 from "./pages/Works_8";
 import Works_9 from "./pages/Works_9";
 import Works_10 from "./pages/Works_10";
 import Works_11 from "./pages/Works_11";
+import Works_12 from "./pages/Works_12";
+import Works_13 from "./pages/Works_13";
+import Works_14 from "./pages/Works_14";
+import Works_15 from "./pages/Works_15";
 import Contact from "./pages/Contact";
 
 import { useRef } from "react";
@@ -42,6 +46,10 @@ function App() {
     works_9: useRef(),
     works_10: useRef(),
     works_11: useRef(),
+    works_12: useRef(),
+    works_13: useRef(),
+    works_14: useRef(),
+    works_15: useRef(),
     contact: useRef(),
   };
 
@@ -57,6 +65,10 @@ function App() {
       <About id="about" ref={sectionRefs.about} />
       <Skill id="skill" ref={sectionRefs.skill} />
       <Experience id="experience" ref={sectionRefs.experience} />
+      <Works_12 id="works" ref={sectionRefs.works_12} />
+      <Works_13 id="works" ref={sectionRefs.works_13} />
+      <Works_14 id="works" ref={sectionRefs.works_14} />
+      <Works_15 id="works" ref={sectionRefs.works_15} />
       <Works_0 id="works" ref={sectionRefs.works_0} />
       <Works_1 id="works" ref={sectionRefs.works_1} />
       <Works_2 id="works" ref={sectionRefs.works_2} />

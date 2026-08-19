@@ -106,6 +106,15 @@ function EmotionLine({ values = [], padding = 20, colorId }) {
       case "processing":
         color = "#5DC2F4";
         break;
+      case "home":
+        color = "#ee8866ff";
+        break;
+      case "team":
+        color = "#f0ff9bff";
+        break;
+      case "schedule":
+        color = "#5DC2F4";
+        break;
       default:
         color = "#fff";
     }

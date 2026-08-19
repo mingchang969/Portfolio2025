@@ -13,6 +13,9 @@ import { ReactComponent as G } from "../images/icon_group.svg";
 import { ReactComponent as Eye } from "../images/icon_eye.svg";
 import { ReactComponent as Brain } from "../images/icon_brain.svg";
 import { ReactComponent as Hand } from "../images/icon_hand.svg";
+import { ReactComponent as Home } from "../images/icon_home.svg";
+import { ReactComponent as Team } from "../images/icon_team.svg";
+import { ReactComponent as Schedule } from "../images/icon_schedule.svg";
 export default function MorphCardTabs({ data, active, setActive, style }) {
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -74,6 +77,15 @@ export default function MorphCardTabs({ data, active, setActive, style }) {
               case "processing":
                 icon = <Hand style={{ fill: "#5DC2F4", stroke: "none" }} />;
                 break;
+              case "home":
+                icon = <Home style={{ fill: "#none", stroke: "#ee8866ff" }} />;
+                break;
+              case "team":
+                icon = <Team style={{ fill: "#none", stroke: "#f0ff9bff" }} />;
+                break;
+              case "schedule":
+                icon = <Schedule style={{ fill: "#none", stroke: "#5DC2F4" }} />;
+                break;
             }
           }
           return (
@@ -82,9 +94,8 @@ export default function MorphCardTabs({ data, active, setActive, style }) {
               layoutId={`card-${tab.id}`}
               layout
               style={{ display: "flex", width: isActive && "100%" }}
-              className={`morph-card ${
-                isActive ? (!isMobile ? "expanded" : "expanded_M") : ""
-              }`}
+              className={`morph-card ${isActive ? (!isMobile ? "expanded" : "expanded_M") : ""
+                }`}
               initial={false}
               animate={{
                 opacity: isHidden ? 0 : 1,
